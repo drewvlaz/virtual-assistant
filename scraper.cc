@@ -1,5 +1,5 @@
 #include<iostream>
-#include<../dependencies/Curl/include/curl/curl.h> 
+#include<../dependencies/curl/include/curl/curl.h> 
 
 int main(int argc, char **argv) {
     CURL *curl;

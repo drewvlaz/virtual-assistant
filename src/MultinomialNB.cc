@@ -43,7 +43,7 @@ void MultinomialNB::ReadInTrainingData(std::string file_name) {
 }
 
 void MultinomialNB::ReadInTrainingData() {
-    ReadInTrainingData("../src/data.json");
+    ReadInTrainingData("../data/data.json");
 }
 
 void MultinomialNB::PrepareData() {
