@@ -13,9 +13,6 @@ include_directories(include)
 # Include source files
 file(GLOB SOURCES "src/*.cc")
 
-# Include other files to read in 
-#add_definitions("-DPATH_TO_JSON=\"${CMAKE_SOURCE_DIR}/include/data.json\"")
-
 # Compiler flags
 #target_link_libraries(VirtualAssistant PRIVATE -ljsoncpp)
 set(CMAKE_CXX_FLAGS -ljsoncpp)
