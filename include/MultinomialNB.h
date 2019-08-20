@@ -26,7 +26,8 @@
 #include <vector>       // std::vector
 #include <sstream>      // std::stringstream
 #include <fstream>      // std::fstream
-#include <json/json.h>  // json objects
+//#include <json/json.h>  // json objects
+#include <../dependencies/jsoncpp/include/json/json.h>  // json objects
 
 class MultinomialNB {
 private:
