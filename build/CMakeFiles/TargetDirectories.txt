@@ -1,0 +1,3 @@
+/home/drewvlaz/Dev/virtual-assistant/build/CMakeFiles/rebuild_cache.dir
+/home/drewvlaz/Dev/virtual-assistant/build/CMakeFiles/VirtualAssistant.dir
+/home/drewvlaz/Dev/virtual-assistant/build/CMakeFiles/edit_cache.dir

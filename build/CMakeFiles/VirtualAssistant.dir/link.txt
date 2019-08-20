@@ -1,0 +1,1 @@
+/usr/bin/c++  -ljsoncpp -O3 -DNDEBUG   CMakeFiles/VirtualAssistant.dir/src/MultinomialNB.cc.o CMakeFiles/VirtualAssistant.dir/src/main.cc.o  -o ../bin/VirtualAssistant 
