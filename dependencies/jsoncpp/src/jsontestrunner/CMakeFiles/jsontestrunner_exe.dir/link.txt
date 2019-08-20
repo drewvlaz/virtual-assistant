@@ -1,0 +1,1 @@
+/usr/bin/c++  -O3 -DNDEBUG   CMakeFiles/jsontestrunner_exe.dir/main.cpp.o  -o jsontestrunner_exe ../lib_json/libjsoncpp.a 
