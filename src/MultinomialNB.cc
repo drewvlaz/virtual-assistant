@@ -28,7 +28,7 @@ void MultinomialNB::AddTrainingData(std::string label, std::vector<std::string> 
 }
 
 void MultinomialNB::ReadInTrainingData(std::string file_name) {
-    std::fstream file(file_name);       // Connection to file
+    std::ifstream file(file_name);       // Connection to file
     Json::Value data_set;               // Recieves contents of file
     // Transfer file contents to JSON object
     file >> data_set;
@@ -43,7 +43,7 @@ void MultinomialNB::ReadInTrainingData(std::string file_name) {
 }
 
 void MultinomialNB::ReadInTrainingData() {
-    ReadInTrainingData("data.json");
+    ReadInTrainingData("../src/data.json");
 }
 
 void MultinomialNB::PrepareData() {

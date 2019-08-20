@@ -51,7 +51,7 @@ public:
 
     void AddTrainingData(std::string label, std::vector<std::string> sentences);
     void ReadInTrainingData(std::string file_name);
-    void ReadInTrainingData();  // Default file name: data.json
+    void ReadInTrainingData();  // Default file name: ../src/data.json
     void PrepareData();
     void Train();
     std::string Classify(std::string sentence);

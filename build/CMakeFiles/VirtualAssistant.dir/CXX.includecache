@@ -6,3 +6,23 @@
 
 #IncludeRegexTransform: 
 
+../include/MultinomialNB.h
+iostream
+-
+algorithm
+-
+map
+-
+vector
+-
+sstream
+-
+fstream
+-
+json/json.h
+-
+
+/home/drewvlaz/Dev/virtual-assistant/src/MultinomialNB.cc
+MultinomialNB.h
+/home/drewvlaz/Dev/virtual-assistant/src/MultinomialNB.h
+
