@@ -1,5 +1,5 @@
 A Simple Virtual Assistant in C++
 
-```mkdir build && cd build```
-```cmake ..```
-```make```
+```mkdir build && cd build
+cmake ..```
+make```
