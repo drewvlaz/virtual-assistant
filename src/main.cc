@@ -1,6 +1,6 @@
 #include <iostream>
 #include "MultinomialNB.h"
-#include "Joker.h"
+#include "CommonFunctions.h"
 
 enum Classification {
     grades,
@@ -31,7 +31,7 @@ int main() {
     enum Classification test = greeting;
     ExecuteUserRequest(test);
 
-    std::cout << GetJoke() << "\n\n";
+    std::cout << CommonFunctions::GetJoke() << "\n\n";
 
     std::string sentence;
     std::cout << "Enter a sentence: ";

@@ -27,11 +27,8 @@ void MultinomialNB::AddTrainingData(std::string label, std::vector<std::string> 
     m_training_data.push_back({label, split_sentences});
 }
 
-void MultinomialNB::ReadInTrainingData(std::string file_name) {
-    std::ifstream file(file_name);       // Connection to file
-    Json::Value data_set;               // Recieves contents of file
-    // Transfer file contents to JSON object
-    file >> data_set;
+void MultinomialNB::ReadInTrainingData(std::string filename) {
+    Json::Value data_set = CommonFunctions::ReadInJson(filename);
     // For each data set, add label and sentences to m_training_data
     for(const auto &label : data_set.getMemberNames()) {
         std::vector<std::vector<std::string>> clean_data;
@@ -77,6 +74,7 @@ void MultinomialNB::Train() {
 }
 
 std::string MultinomialNB::Classify(std::string sentence) {
+    // Classify a sentence based on categories in training data
     std::vector<std::string> split_string {Split(sentence)};
     m_category_probabilities.resize(m_training_data.size());
 
@@ -102,6 +100,7 @@ std::string MultinomialNB::Classify(std::string sentence) {
 }
 
 void MultinomialNB::DisplayCategoryPercentages() {
+    // Display the percentage of confidence model has for each category
     double sum {0};
     for(double probability : m_category_probabilities) {
         sum += probability;
@@ -124,15 +123,12 @@ bool MultinomialNB::VocabContains(std::string word) {
 }
 
 std::vector<std::string> MultinomialNB::Split(std::string sentence) {
-    std::string clean_sentence;                 // Sentence without punctuation
-    for(const auto &c : sentence) {
-        if(!ispunct(c)) {
-            clean_sentence.push_back(c);
-        }
-    }
-    std::string buffer;                         // Buffer string
-    std::stringstream stream {clean_sentence};  // Insert string into a stream
-    std::vector<std::string> tokens;            // Vector to hold words
+    // Split a string into a vector of words
+    std::string clean_sentence = CommonFunctions::Clean(sentence);  // Sentence without punctuation
+    // TODO: Figure out how this works, got off of Stack Overflow
+    std::string buffer;
+    std::stringstream stream {clean_sentence};
+    std::vector<std::string> tokens;
     while (stream >> buffer){
         tokens.push_back(buffer);
     }
@@ -140,6 +136,7 @@ std::vector<std::string> MultinomialNB::Split(std::string sentence) {
 }
 
 int MultinomialNB::Max(std::vector<double> values) {
+    // Return the max value in a vector of numbers
     double max {values.at(0)};
     double num;
     int index {0};

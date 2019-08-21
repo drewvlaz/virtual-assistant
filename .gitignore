@@ -1,3 +1,5 @@
-.vscode/*
+.vscode/
 bin/
 build/
+data/api_keys.json
+*.o
