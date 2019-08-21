@@ -123,6 +123,33 @@ VirtualAssistant/fast:
 	$(MAKE) -f CMakeFiles/VirtualAssistant.dir/build.make CMakeFiles/VirtualAssistant.dir/build
 .PHONY : VirtualAssistant/fast
 
+src/Joker.o: src/Joker.cc.o
+
+.PHONY : src/Joker.o
+
+# target to build an object file
+src/Joker.cc.o:
+	$(MAKE) -f CMakeFiles/VirtualAssistant.dir/build.make CMakeFiles/VirtualAssistant.dir/src/Joker.cc.o
+.PHONY : src/Joker.cc.o
+
+src/Joker.i: src/Joker.cc.i
+
+.PHONY : src/Joker.i
+
+# target to preprocess a source file
+src/Joker.cc.i:
+	$(MAKE) -f CMakeFiles/VirtualAssistant.dir/build.make CMakeFiles/VirtualAssistant.dir/src/Joker.cc.i
+.PHONY : src/Joker.cc.i
+
+src/Joker.s: src/Joker.cc.s
+
+.PHONY : src/Joker.s
+
+# target to generate assembly for a file
+src/Joker.cc.s:
+	$(MAKE) -f CMakeFiles/VirtualAssistant.dir/build.make CMakeFiles/VirtualAssistant.dir/src/Joker.cc.s
+.PHONY : src/Joker.cc.s
+
 src/MultinomialNB.o: src/MultinomialNB.cc.o
 
 .PHONY : src/MultinomialNB.o
@@ -186,6 +213,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... VirtualAssistant"
 	@echo "... edit_cache"
+	@echo "... src/Joker.o"
+	@echo "... src/Joker.i"
+	@echo "... src/Joker.s"
 	@echo "... src/MultinomialNB.o"
 	@echo "... src/MultinomialNB.i"
 	@echo "... src/MultinomialNB.s"

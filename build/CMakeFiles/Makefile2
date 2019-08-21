@@ -74,12 +74,12 @@ preinstall:
 CMakeFiles/VirtualAssistant.dir/all:
 	$(MAKE) -f CMakeFiles/VirtualAssistant.dir/build.make CMakeFiles/VirtualAssistant.dir/depend
 	$(MAKE) -f CMakeFiles/VirtualAssistant.dir/build.make CMakeFiles/VirtualAssistant.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/drewvlaz/Dev/virtual-assistant/build/CMakeFiles --progress-num=1,2,3 "Built target VirtualAssistant"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/drewvlaz/Dev/virtual-assistant/build/CMakeFiles --progress-num=1,2,3,4 "Built target VirtualAssistant"
 .PHONY : CMakeFiles/VirtualAssistant.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/VirtualAssistant.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/drewvlaz/Dev/virtual-assistant/build/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/drewvlaz/Dev/virtual-assistant/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/VirtualAssistant.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/drewvlaz/Dev/virtual-assistant/build/CMakeFiles 0
 .PHONY : CMakeFiles/VirtualAssistant.dir/rule

@@ -1,6 +1,7 @@
 file(REMOVE_RECURSE
   "../bin/VirtualAssistant"
   "../bin/VirtualAssistant.pdb"
+  "CMakeFiles/VirtualAssistant.dir/src/Joker.cc.o"
   "CMakeFiles/VirtualAssistant.dir/src/MultinomialNB.cc.o"
   "CMakeFiles/VirtualAssistant.dir/src/main.cc.o"
 )
