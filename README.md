@@ -1,4 +1,7 @@
-A Simple Virtual Assistant in C++
+# A Simple Virtual Assistant in C++
+
+
+## Building
 
 ```
 mkdir build && cd build
