@@ -7,3 +7,6 @@
 mkdir build && cd build
 cmake ..
 make
+```
+
+The VirtualAssistant executable will be created in bin/
