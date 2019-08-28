@@ -15,8 +15,8 @@ Json::Value CommonFunctions::ReadInJson(std::string filename) {
 std::string CommonFunctions::Clean(std::string input) {
     // Clean a string of any punctuation
     std::string clean_input;
-    for(const auto &c : input) {
-        if(!ispunct(c)) {
+    for (const auto &c : input) {
+        if (!ispunct(c)) {
             clean_input.push_back(c);
         }
     }
@@ -29,12 +29,12 @@ std::string CommonFunctions::GetJoke() {
     std::string line;
     std::vector<std::string> jokes;
 
-    if(!file) {
+    if (!file) {
         std::cout << "Cant open joke file\n";
         return "There are no jokes.";
     }
     else {
-        while(getline(file, line)) {
+        while (getline(file, line)) {
             // Remove begining numbers and quotes first
             line = line.substr(line.find("\"") + 1);
             line = line.substr(0, line.length() - 1);

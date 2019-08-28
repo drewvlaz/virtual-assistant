@@ -21,7 +21,7 @@
 
 void MultinomialNB::AddTrainingData(std::string label, std::vector<std::string> sentences) {
     std::vector<std::vector<std::string>> split_sentences;
-    for(std::string sentence : sentences) {
+    for (std::string sentence : sentences) {
         split_sentences.push_back(Split(sentence));
     }
     m_training_data.push_back({label, split_sentences});
@@ -30,9 +30,9 @@ void MultinomialNB::AddTrainingData(std::string label, std::vector<std::string> 
 void MultinomialNB::ReadInTrainingData(std::string filename) {
     Json::Value data_set = CommonFunctions::ReadInJson(filename);
     // For each data set, add label and sentences to m_training_data
-    for(const auto &label : data_set.getMemberNames()) {
+    for (const auto &label : data_set.getMemberNames()) {
         std::vector<std::vector<std::string>> clean_data;
-        for(const auto &sentence : data_set[label]) {
+        for (const auto &sentence : data_set[label]) {
             clean_data.push_back(Split(sentence.toStyledString()));
         }
         m_training_data.push_back({label, clean_data});
@@ -44,10 +44,10 @@ void MultinomialNB::ReadInTrainingData() {
 }
 
 void MultinomialNB::PrepareData() {
-    for(Category &category : m_training_data) {
-        for(const std::vector<std::string> &phrase : category.phrases) {
-            for(const std::string &word : phrase) {
-                if(!VocabContains(word)) {
+    for (Category &category : m_training_data) {
+        for (const std::vector<std::string> &phrase : category.phrases) {
+            for (const std::string &word : phrase) {
+                if (!VocabContains(word)) {
                     m_vocabulary.push_back(word);
                 }
                 ++category.bag_of_words[word];
@@ -59,9 +59,9 @@ void MultinomialNB::PrepareData() {
 }
 
 void MultinomialNB::Train() {
-    for(Category &category : m_training_data) {
-        for(const std::vector<std::string> &phrase : category.phrases) {
-            for(const std::string &word : phrase) {
+    for (Category &category : m_training_data) {
+        for (const std::vector<std::string> &phrase : category.phrases) {
+            for (const std::string &word : phrase) {
                 category.probabilities[word] = {
                     // calculate probability of a word given a category
                     // add 1 to numerator and add vocab size to denominator for laplace smoothing
@@ -78,12 +78,12 @@ std::string MultinomialNB::Classify(std::string sentence) {
     std::vector<std::string> split_string {Split(sentence)};
     m_category_probabilities.resize(m_training_data.size());
 
-    for(int i=0; i<m_training_data.size(); ++i) {
+    for (int i=0; i<m_training_data.size(); ++i) {
         // vectors initialize to 0, since multiplying, set it to 1
         m_category_probabilities.at(i) = 1;
-        for(const std::string &word: split_string) {
+        for (const std::string &word: split_string) {
             // check to see if training data of a category contains the target word
-            if(m_training_data.at(i).bag_of_words[word]) {
+            if (m_training_data.at(i).bag_of_words[word]) {
                 // P(c|X)  *=  P(x1|c)P(x2|c)...P(xn|c)
                 // multiply probability of the target word given the category
                 m_category_probabilities.at(i) *= m_training_data.at(i).probabilities[word];
@@ -102,11 +102,11 @@ std::string MultinomialNB::Classify(std::string sentence) {
 void MultinomialNB::DisplayCategoryPercentages() {
     // Display the percentage of confidence model has for each category
     double sum {0};
-    for(double probability : m_category_probabilities) {
+    for (double probability : m_category_probabilities) {
         sum += probability;
     }
 
-    for(int i=0; i<m_category_probabilities.size(); ++i) {
+    for (int i=0; i<m_category_probabilities.size(); ++i) {
         double percentage = m_category_probabilities.at(i) / sum * 100;
         std::cout << m_training_data.at(i).label << " " << percentage << "\n";
     }
@@ -140,9 +140,9 @@ int MultinomialNB::Max(std::vector<double> values) {
     double max {values.at(0)};
     double num;
     int index {0};
-    for(int i=0; i<values.size(); ++i) {
+    for (int i=0; i<values.size(); ++i) {
         num = values.at(i);
-        if(num > max) {
+        if (num > max) {
             max = num;
             index = i;
         }
