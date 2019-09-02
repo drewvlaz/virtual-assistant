@@ -45,16 +45,26 @@ void DisplayWeather() {
     std::array<std::string, 5> weather_summary;
 
     // Clean data and add it to array
-    weather_summary.at(0) = "Summary: " + weather_data["currently"]["summary"].toStyledString();
-    weather_summary.at(1) = 
+    weather_summary.at(0) = {
+        "Summary: " 
+        + weather_data["currently"]["summary"].toStyledString()
+    };
+    weather_summary.at(1) = { 
         "Temperature: "
-        + weather_data["currently"]["temperature"].toStyledString().substr(0, find("."))
-        + "\n";
-    weather_summary.at(2) = 
-        "Feels like: " 
-        + weather_data["currently"]["apparentTemperature"].toStyledString().substr(0, 2)
-        + "\n";
-
+        + weather_data["currently"]["temperature"].toStyledString().substr(0, 5)
+        + "\n"
+    };
+    std::string test = weather_data["currently"]["apparentTemperature"].toStyledString();
+    weather_summary.at(2) = {
+        "Feels like: "
+        + (test.substr(0, 1))
+        + "\n"
+    };
+    weather_summary.at(3) = {
+        "Change of Rain: " 
+        + weather_data["currently"]["precipProbability"].toStyledString().substr(0, 5)
+        + "\n"
+    };
 
 
     for (const auto &info : weather_summary) {

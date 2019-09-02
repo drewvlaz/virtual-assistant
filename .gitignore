@@ -5,3 +5,4 @@ data/api_keys.json
 *.o
 *.out
 spike/a.out
+tree.txt
