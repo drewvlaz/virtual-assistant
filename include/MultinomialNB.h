@@ -35,12 +35,12 @@ private:
         std::vector<std::vector<std::string> > phrases;     // vector of phrases containing a list of words
         std::map<std::string, double> probabilities;        // map of word to probability given the category
         std::map<std::string, int> bag_of_words;            // map of word to number of apperances in data
-        int word_count;                                     // total word count from all phrases
+        int word_count {0};                                 // total word count from all phrases
     };
     std::vector<Category> m_training_data;                  // contains category labels and examples for training
     std::vector<std::string> m_vocabulary;                  // vector of unique words across all categories
     std::vector<double> m_category_probabilities;           // probability input is of each category
-    int m_phrase_count;
+    int m_phrase_count {0};                                 // total number of phrases across all categoies in training data
 
 public:
     MultinomialNB() {}

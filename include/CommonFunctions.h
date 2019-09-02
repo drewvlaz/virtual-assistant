@@ -13,7 +13,6 @@
 namespace CommonFunctions {
     Json::Value ReadInJson(std::string filename);
     std::string Clean(std::string input);
-    std::string GetJoke();
 }
 
 #endif

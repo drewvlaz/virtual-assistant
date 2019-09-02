@@ -68,6 +68,9 @@ void MultinomialNB::Train() {
                     static_cast<double>(category.bag_of_words[word] + 1)
                     / (category.word_count + m_vocabulary.size())
                 };
+                #if DEBUG
+                std::cout << word << ": " << category.probabilities[word] << std::endl;
+                #endif
             }
         }
     }
@@ -91,11 +94,13 @@ std::string MultinomialNB::Classify(std::string sentence) {
             else {
                 m_category_probabilities.at(i) *= static_cast<double>(1) / m_vocabulary.size();
             }
+            std::cout << word << ": " << m_category_probabilities.at(i) << std::endl;
         }
         // P(c|X) *= P(c)
         // P(c) is the num of phrases in category / total num of phrases
         m_category_probabilities.at(i) *= m_training_data.at(i).phrases.size() / static_cast<double>(m_phrase_count);
     }
+
     return m_training_data.at(Max(m_category_probabilities)).label;
 }
 
@@ -129,7 +134,7 @@ std::vector<std::string> MultinomialNB::Split(std::string sentence) {
     std::string buffer;
     std::stringstream stream {clean_sentence};
     std::vector<std::string> tokens;
-    while (stream >> buffer){
+    while (stream >> buffer) {
         tokens.push_back(buffer);
     }
     return tokens;
@@ -147,5 +152,6 @@ int MultinomialNB::Max(std::vector<double> values) {
             index = i;
         }
     }
+    std::cout << index << std::endl;
     return index;
 }

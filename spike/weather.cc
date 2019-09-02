@@ -24,7 +24,7 @@ void RetrieveWeather(){
 
     CURL *curl {curl_easy_init()};
     FILE *fp;
-    CURLcode res;
+    CURLcode result;
     char outfilename[FILENAME_MAX] {"weather.json"};
     
     if (curl) {
@@ -32,7 +32,8 @@ void RetrieveWeather(){
         curl_easy_setopt(curl, CURLOPT_URL, url.c_str());
         curl_easy_setopt(curl, CURLOPT_WRITEFUNCTION, NULL);
         curl_easy_setopt(curl, CURLOPT_WRITEDATA, fp);
-        res = curl_easy_perform(curl);
+        // Request webpage, result stores return code
+        result = curl_easy_perform(curl);
         curl_easy_cleanup(curl);
         fclose(fp);
     }
@@ -41,21 +42,36 @@ void RetrieveWeather(){
 void DisplayWeather() {
     // Display relevant weather information
     Json::Value weather_data {CommonFunctions::ReadInJson("weather.json")};
-    std::map<std::string, std::string> weather_info = {
-        {"Summary", "summary"},
-        {"Temperature", "temperature"},
-        {"Feels like", "apparentTemperature"},
-        {"Chance of Rain", "precipProbability"},
-        {"Humidity", "humidity"}
-    };
+    std::array<std::string, 5> weather_summary;
 
-    // std::cout << weather_data["daily"]["summary"];
+    // Clean data and add it to array
+    weather_summary.at(0) = "Summary: " + weather_data["currently"]["summary"].toStyledString();
+    weather_summary.at(1) = 
+        "Temperature: "
+        + weather_data["currently"]["temperature"].toStyledString().substr(0, find("."))
+        + "\n";
+    weather_summary.at(2) = 
+        "Feels like: " 
+        + weather_data["currently"]["apparentTemperature"].toStyledString().substr(0, 2)
+        + "\n";
 
-    for (const auto &label : weather_info) {
-        std::cout << label.first << ": " << weather_data["currently"][label.second] << std::endl;
+
+
+    for (const auto &info : weather_summary) {
+        std::cout << info;
     }
-           
-    // std::cout << weather_info.key_comp() << std::endl;
+
+    // Maps are unordered
+    // std::map<std::string, std::string> weather_info = {
+    //     {"Summary", "summary"},
+    //     {"Temperature", "temperature"},
+    //     {"Feels like", "apparentTemperature"},
+    //     {"Chance of Rain", "precipProbability"},
+    //     {"Humidity", "humidity"}
+    // };
+    // for (const auto &label : weather_info) {
+    //     std::cout << label.first << ": " << weather_data["currently"][label.second] << std::endl;
+    // }
 }
 
 int main() {
