@@ -8,10 +8,10 @@ import java.util.HashMap;
 public class Category {
     // Instance variables
     private String label;
-    private ArrayList<String[]> phrases;
-    private HashMap<String, Double> probabilities;
-    private HashMap<String, Integer> bagOfWords;
-    int totalWordCount;
+    private ArrayList<String[]> phrases = new ArrayList<>();
+    private HashMap<String, Double> probabilities = new HashMap<String, Double>();
+    private HashMap<String, Integer> bagOfWords = new HashMap<String, Integer>();
+    int totalWordCount = 1;
 
     // Constructor
     public Category(String label, ArrayList<String[]> phrases){
@@ -67,8 +67,8 @@ public class Category {
     public void calculateProbabilities(ArrayList<String> vocabulary) {
         for (String[] phrase : phrases) {
             for (String word : phrase) {
-                // calculate probability of a word given a category
-                // add 1 to numerator and add vocab size to denominator for laplace smoothing
+                // Calculate probability of a word given a category
+                // Add 1 to numerator and add vocab size to denominator for laplace smoothing
                 probabilities.put(
                     word,
                     (double)(bagOfWords.get(word) + 1) / (totalWordCount + vocabulary.size())

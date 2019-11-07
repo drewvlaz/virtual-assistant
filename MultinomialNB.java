@@ -1,13 +1,34 @@
+// This program is a multinomial Naive Bayes classifier for 
+// for text classification
+// 
+// The Naive Bayes classifier is based off of Bayes Theorem:
+// 
+//                      P(B|A)P(A)
+//           P(A|B)  =  ----------
+//                         P(B)
+// 
+// Implementation:
+// 
+//          P(c|X)  =  P(x1|c)P(x2|c)...P(xn|c)P(c)
+// 
+// Naive Bayes assumes each feature of set (X) contributes
+// equally and indepently to the class (c), hence the name
+// Because this is calculated for each class with a given
+// feature set, the denominator remains constant and can
+// therefore be ignored
+
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class MultinomialNB {
     // Instance variables
-    private ArrayList<Category> trainingData;
-    private ArrayList<String> vocabulary;
-    private ArrayList<Double> categoryProbabilities; 
+    private ArrayList<Category> trainingData = new ArrayList<>();
+    private ArrayList<String> vocabulary = new ArrayList<>();
+    private ArrayList<Double> categoryProbabilities = new ArrayList<>(); 
     private int phraseCount = 0;
 
     // Constructor
+    public MultinomialNB() {}
     public MultinomialNB(ArrayList<Category> trainingData) {
         this.trainingData = trainingData;
     }
@@ -50,7 +71,7 @@ public class MultinomialNB {
     }
 
     // Train model 
-    public void Train() {
+    public void train() {
         for (Category category : trainingData) {
             category.calculateProbabilities(vocabulary);            
         }
@@ -58,9 +79,41 @@ public class MultinomialNB {
 
     // Classify user input
     // @param sentence: sentence to classify to a category
-    public void Classify(String sentence) {
-        for (Category category : trainingData) {
+    public String classify(String sentence) {
+        // Split sentence into words
+        String[] words = sentence.split(" ");
 
+        for (int i = 0; i < trainingData.size(); i++) {
+            // Initialize to 1 since multiplying
+            double probability = 1;
+
+            for (String word : words) {
+                // If category contains the word
+                if (trainingData.get(i).getBagOfWords().containsKey(word)) {
+                    // P(c|X)  *=  P(x1|c)P(x2|c)...P(xn|c)
+                    // Multiply probability of the target word given the category
+                    probability *= trainingData.get(i).getProbabilities().get(word);
+                }
+                else {
+                    // If word not in category, multiply by standard value
+                    probability *= 1.0 / vocabulary.size();
+                }
+            }
+            // P(c|X) *= P(c)
+            // P(c) is the num of phrases in category / total num of phrases
+            probability *= trainingData.get(i).getPhrases().size() / (double)phraseCount;
+
+            // Update category probability
+            categoryProbabilities.add(probability);
         }
+
+        // Return the category name with highest probability
+        return trainingData.get(
+            categoryProbabilities.indexOf(
+                Collections.max(
+                    categoryProbabilities
+                )
+            )
+        ).getLabel();
     }
 }
