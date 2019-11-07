@@ -14,7 +14,7 @@ public class Category {
     int wordCount;
 
     // Constructor
-    public Category() {
+    public Category(){
 
     }
 }

@@ -3,13 +3,14 @@
 #include <curl/curl.h>
 #include "CommonFunctions.h"
 
-void RetrieveWeather(){
+void RetrieveWeather() {
     // Recieve weather information from the Dark Sky API (1000 calls/day)
     Json::Value api_keys {CommonFunctions::ReadInJson("../data/api_keys.json")};
     std::string url {"https://api.darksky.net/forecast/"};
     std::string key;
     std::string coordinates {"/40.957130,-74.737640"};
 
+    // Get the api key if it exists
     for (const auto &label : api_keys.getMemberNames()) {
         if (label == "weather") {
             url += CommonFunctions::Clean(api_keys[label].toStyledString());
@@ -18,10 +19,12 @@ void RetrieveWeather(){
             std::cout << "Can't retrieve api keys" << std::endl;
         }
     }
+
     // Get ride of trailing \r from toStyledString
     url = url.substr(0, url.length() - 1);
     url += coordinates;
 
+    // Use curl to retrieve the weather info
     CURL *curl {curl_easy_init()};
     FILE *fp;
     CURLcode result;
@@ -61,7 +64,7 @@ void DisplayWeather() {
         + "\n"
     };
     weather_summary.at(3) = {
-        "Change of Rain: " 
+        "Chance of Rain: " 
         + weather_data["currently"]["precipProbability"].toStyledString().substr(0, 5)
         + "\n"
     };
