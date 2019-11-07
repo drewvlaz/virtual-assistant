@@ -24,4 +24,35 @@ public class MultinomialNB {
     public ArrayList<Double> getCategoryProbabilities() {
         return categoryProbabilities;
     }
+
+    // Add training data
+    // @param label: label of data category
+    // @param sentences: training data sentence examples
+    public void addTrainingData(String label, ArrayList<String> sentences) {
+        // Holds the words of each sentence
+        ArrayList<String[]> phrases = new ArrayList<>();
+
+        for (String sentence : sentences) {
+            phrases.add(sentence.split(" "));
+        }
+
+        trainingData.add(new Category(label, phrases));
+    }
+
+    // Prepare the data
+    public void prepareData() {
+        for (Category category : trainingData) {
+            for (String[] phrase : category.getPhrases()) {
+                for (String word : phrase) {
+                    if (!vocabulary.contains(word)) {
+                        vocabulary.add(word);
+                    }
+                    // Count number of times each word appears
+                    category.incrementBagOfWords(word);
+                }
+                // Count number of phrases there are in data set
+                phraseCount++;
+            }
+        }
+    }
 }
