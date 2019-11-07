@@ -47,4 +47,33 @@ public class Category {
         bagOfWords.put(word, count + 1);
         totalWordCount++;
     }
+
+    // Get count of each word in data set and adds it to vocabulary
+    // @param vocabulary: list containing all unique words in data set
+    public void countWords(ArrayList<String> vocabulary) {
+        for (String[] phrase : phrases) {
+            for (String word : phrase) {
+                if (!vocabulary.contains(word)) {
+                    vocabulary.add(word);
+                }
+                // Count number of times each word appears
+                incrementBagOfWords(word);
+            }
+        }
+    }
+
+    // Calculate the probability of each word given the current category
+    // @param vocabulary: list containing all unique words in data set
+    public void calculateProbabilities(ArrayList<String> vocabulary) {
+        for (String[] phrase : phrases) {
+            for (String word : phrase) {
+                // calculate probability of a word given a category
+                // add 1 to numerator and add vocab size to denominator for laplace smoothing
+                probabilities.put(
+                    word,
+                    (double)(bagOfWords.get(word) + 1) / (totalWordCount + vocabulary.size())
+                );
+            }
+        }
+    }
 }

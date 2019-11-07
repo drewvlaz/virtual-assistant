@@ -5,7 +5,7 @@ public class MultinomialNB {
     private ArrayList<Category> trainingData;
     private ArrayList<String> vocabulary;
     private ArrayList<Double> categoryProbabilities; 
-    private int phraseCount;
+    private int phraseCount = 0;
 
     // Constructor
     public MultinomialNB(ArrayList<Category> trainingData) {
@@ -39,20 +39,28 @@ public class MultinomialNB {
         trainingData.add(new Category(label, phrases));
     }
 
-    // Prepare the data
+    // Prepare the data by counting words and updating the vocabulary
     public void prepareData() {
         for (Category category : trainingData) {
-            for (String[] phrase : category.getPhrases()) {
-                for (String word : phrase) {
-                    if (!vocabulary.contains(word)) {
-                        vocabulary.add(word);
-                    }
-                    // Count number of times each word appears
-                    category.incrementBagOfWords(word);
-                }
-                // Count number of phrases there are in data set
-                phraseCount++;
-            }
+            // Get count of each word in data set and adds it to vocabulary
+            category.countWords(vocabulary);
+            // Count number of phrases there are total from all data sets
+            phraseCount += category.getPhrases().size();
+        }
+    }
+
+    // Train model 
+    public void Train() {
+        for (Category category : trainingData) {
+            category.calculateProbabilities(vocabulary);            
+        }
+    }
+
+    // Classify user input
+    // @param sentence: sentence to classify to a category
+    public void Classify(String sentence) {
+        for (Category category : trainingData) {
+
         }
     }
 }
