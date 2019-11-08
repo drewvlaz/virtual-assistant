@@ -8,10 +8,10 @@ import java.util.HashMap;
 public class Category {
     // Instance variables
     private String label;
-    private ArrayList<String[]> phrases;
-    private HashMap<String, Double> probabilities;
-    private HashMap<String, Integer> bagOfWords;
-    int totalWordCount;
+    private ArrayList<String[]> phrases = new ArrayList<>();
+    private HashMap<String, Double> probabilities = new HashMap<String, Double>();
+    private HashMap<String, Integer> bagOfWords = new HashMap<String, Integer>();
+    int totalWordCount = 1;
 
     // Constructor
     public Category(String label, ArrayList<String[]> phrases){
@@ -46,5 +46,34 @@ public class Category {
         int count = bagOfWords.containsKey(word) ? bagOfWords.get(word) : 0;
         bagOfWords.put(word, count + 1);
         totalWordCount++;
+    }
+
+    // Get count of each word in data set and adds it to vocabulary
+    // @param vocabulary: list containing all unique words in data set
+    public void countWords(ArrayList<String> vocabulary) {
+        for (String[] phrase : phrases) {
+            for (String word : phrase) {
+                if (!vocabulary.contains(word)) {
+                    vocabulary.add(word);
+                }
+                // Count number of times each word appears
+                incrementBagOfWords(word);
+            }
+        }
+    }
+
+    // Calculate the probability of each word given the current category
+    // @param vocabulary: list containing all unique words in data set
+    public void calculateProbabilities(ArrayList<String> vocabulary) {
+        for (String[] phrase : phrases) {
+            for (String word : phrase) {
+                // Calculate probability of a word given a category
+                // Add 1 to numerator and add vocab size to denominator for laplace smoothing
+                probabilities.put(
+                    word,
+                    (double)(bagOfWords.get(word) + 1) / (totalWordCount + vocabulary.size())
+                );
+            }
+        }
     }
 }
