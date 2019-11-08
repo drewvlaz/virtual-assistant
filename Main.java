@@ -33,7 +33,7 @@ public class Main {
         );
 
         ArrayList<String> weather = new ArrayList<>();
-            grades.addAll(
+            weather.addAll(
                 Arrays.asList(
                     "how is the weather",
                     "is it rainy outside",
@@ -64,7 +64,9 @@ public class Main {
 
         System.out.print("Enter a sentence: ");
         sentence = in.nextLine();
+        in.close();
         label = model.classify(sentence);
+        model.DisplayCategoryProbabilities();
         System.out.println(label);
     }
 }

@@ -83,16 +83,16 @@ public class MultinomialNB {
         // Split sentence into words
         String[] words = sentence.split(" ");
 
-        for (int i = 0; i < trainingData.size(); i++) {
+        for (Category category : trainingData) {
             // Initialize to 1 since multiplying
             double probability = 1;
 
             for (String word : words) {
                 // If category contains the word
-                if (trainingData.get(i).getBagOfWords().containsKey(word)) {
+                if (category.getBagOfWords().containsKey(word)) {
                     // P(c|X)  *=  P(x1|c)P(x2|c)...P(xn|c)
                     // Multiply probability of the target word given the category
-                    probability *= trainingData.get(i).getProbabilities().get(word);
+                    probability *= category.getProbabilities().get(word);
                 }
                 else {
                     // If word not in category, multiply by standard value
@@ -101,7 +101,7 @@ public class MultinomialNB {
             }
             // P(c|X) *= P(c)
             // P(c) is the num of phrases in category / total num of phrases
-            probability *= trainingData.get(i).getPhrases().size() / (double)phraseCount;
+            probability *= (double)category.getPhrases().size() / phraseCount;
 
             // Update category probability
             categoryProbabilities.add(probability);
@@ -115,5 +115,19 @@ public class MultinomialNB {
                 )
             )
         ).getLabel();
+    }
+
+    // Display the probabilities for each category
+    public void DisplayCategoryProbabilities() {
+        double sum = 0;
+        
+        for (double probability : categoryProbabilities) {
+            sum += probability;
+        }
+
+        for (int i = 0; i < categoryProbabilities.size(); i++) {
+            double percentage = categoryProbabilities.get(i) / sum * 100;
+            System.out.printf("%s: %.2f%%%n", trainingData.get(i).getLabel(), percentage);
+        }
     }
 }

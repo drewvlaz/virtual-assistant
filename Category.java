@@ -11,7 +11,7 @@ public class Category {
     private ArrayList<String[]> phrases = new ArrayList<>();
     private HashMap<String, Double> probabilities = new HashMap<String, Double>();
     private HashMap<String, Integer> bagOfWords = new HashMap<String, Integer>();
-    int totalWordCount = 1;
+    int totalWordCount = 0;
 
     // Constructor
     public Category(String label, ArrayList<String[]> phrases){
