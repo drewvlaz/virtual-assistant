@@ -42,7 +42,7 @@ public class Category {
 
     // Increment word count for word and total word count
     // @param word: word to add count of
-    public void incrementBagOfWords(String word) {
+    public void incrementWords(String word) {
         int count = bagOfWords.containsKey(word) ? bagOfWords.get(word) : 0;
         bagOfWords.put(word, count + 1);
         totalWordCount++;
@@ -57,7 +57,7 @@ public class Category {
                     vocabulary.add(word);
                 }
                 // Count number of times each word appears
-                incrementBagOfWords(word);
+                incrementWords(word);
             }
         }
     }
