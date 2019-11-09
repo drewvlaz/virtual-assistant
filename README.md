@@ -1,6 +1,6 @@
 # A Simple Virtual Assistant in C++
 
-***Notice: Still in development***
+***Notice: Still in development and currently translating to Java***
 
 ## Overview
 This is a virtual assistant aimed for students powered by Naive Bayes.

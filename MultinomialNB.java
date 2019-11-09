@@ -1,21 +1,22 @@
-// This program is a multinomial Naive Bayes classifier for 
+// This program is a multinomial Naive Bayes classifier for
 // for text classification
-// 
+//
 // The Naive Bayes classifier is based off of Bayes Theorem:
-// 
+//
 //                      P(B|A)P(A)
 //           P(A|B)  =  ----------
 //                         P(B)
-// 
+//
 // Implementation:
-// 
+//
 //          P(c|X)  =  P(x1|c)P(x2|c)...P(xn|c)P(c)
-// 
+//
 // Naive Bayes assumes each feature of set (X) contributes
 // equally and indepently to the class (c), hence the name
 // Because this is calculated for each class with a given
-// feature set, the denominator remains constant and can
-// therefore be ignored
+// feature set, the denominator (P(B)) remains constant 
+// because it is the given input to be classified and can
+// therefore be disregarded in the calculations
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -24,7 +25,7 @@ public class MultinomialNB {
     // Instance variables
     private ArrayList<Category> trainingData = new ArrayList<>();
     private ArrayList<String> vocabulary = new ArrayList<>();
-    private ArrayList<Double> categoryProbabilities = new ArrayList<>(); 
+    private ArrayList<Double> categoryProbabilities = new ArrayList<>();
     private int phraseCount = 0;
 
     // Constructor
@@ -70,10 +71,10 @@ public class MultinomialNB {
         }
     }
 
-    // Train model 
+    // Train model
     public void train() {
         for (Category category : trainingData) {
-            category.calculateProbabilities(vocabulary);            
+            category.calculateProbabilities(vocabulary);
         }
     }
 
@@ -81,7 +82,7 @@ public class MultinomialNB {
     // @param sentence: sentence to classify to a category
     public String classify(String sentence) {
         // Split sentence into words
-        String[] words = sentence.split(" ");
+        String[] words = clean(sentence);
 
         for (Category category : trainingData) {
             // Initialize to 1 since multiplying
@@ -120,7 +121,7 @@ public class MultinomialNB {
     // Display the probabilities for each category
     public void DisplayCategoryProbabilities() {
         double sum = 0;
-        
+
         for (double probability : categoryProbabilities) {
             sum += probability;
         }
@@ -130,4 +131,21 @@ public class MultinomialNB {
             System.out.printf("%s: %.2f%%%n", trainingData.get(i).getLabel(), percentage);
         }
     }
+
+    // Clean the input data by removing special characters
+    // and converting to lowercase
+    // @param sentence: input to clean
+    public String[] clean(String input) {
+	String clean = "";
+	input = input.toLowerCase();
+
+	for (int i = 0; i < input.length(); i++) {
+		char c = input.charAt(i);
+		if (Character.isLetter(c) || c == ' ') {
+			clean += c;
+		}
+	}
+
+	return clean.split(" ");
+	}
 }
