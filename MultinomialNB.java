@@ -14,8 +14,9 @@
 // Naive Bayes assumes each feature of set (X) contributes
 // equally and indepently to the class (c), hence the name
 // Because this is calculated for each class with a given
-// feature set, the denominator remains constant and can
-// therefore be ignored
+// feature set, the denominator (P(B)) remains constant 
+// because it is the given input to be classified and can
+// therefore be disregarded in the calculations
 
 import java.util.ArrayList;
 import java.util.Collections;
