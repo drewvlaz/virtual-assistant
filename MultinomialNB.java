@@ -136,16 +136,16 @@ public class MultinomialNB {
     // and converting to lowercase
     // @param sentence: input to clean
     public String[] clean(String input) {
-		String clean = "";
-		input = input.toLowerCase();
+	String clean = "";
+	input = input.toLowerCase();
 
-		for (int i = 0; i < input.length(); i++) {
-			char c = input.charAt(i);
-			if (Character.isLetter(c) || c == ' ') {
-				clean += c;
-			}
+	for (int i = 0; i < input.length(); i++) {
+		char c = input.charAt(i);
+		if (Character.isLetter(c) || c == ' ') {
+			clean += c;
 		}
+	}
 
-		return clean.split(" ");
+	return clean.split(" ");
 	}
 }
