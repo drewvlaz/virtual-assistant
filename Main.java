@@ -1,4 +1,3 @@
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -50,13 +49,44 @@ public class Main {
             )
         );
 
+        ArrayList<String> greetings = new ArrayList<>();
+			greetings.addAll(
+				Arrays.asList(
+					"hello how are you",
+					"hello",
+					"nice to meet you",
+					"hey how is it going",
+					"hows it going",
+					"whats up",
+					"hello its nice to meet you",
+					"hey",
+					"hello my name is",
+					"hey im",
+					"whats you name",
+					"what do you call yourself",
+					"good morning",
+					"good afternoon",
+					"good night evening",
+        			"how are you doing"
+			)
+        );
+
+
+
+
         model.addTrainingData(
             "grades",
             grades
         );
+
         model.addTrainingData(
             "weather",
             weather
+        );
+
+        model.addTrainingData(
+			"greetings",
+			greetings
         );
 
         model.prepareData();
@@ -67,6 +97,5 @@ public class Main {
         in.close();
         label = model.classify(sentence);
         model.DisplayCategoryProbabilities();
-        System.out.println(label);
     }
 }
