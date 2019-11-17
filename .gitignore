@@ -6,3 +6,4 @@ data/api_keys.json
 *.out
 spike/a.out
 tree.txt
+*.class
