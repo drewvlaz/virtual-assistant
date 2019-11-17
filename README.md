@@ -11,9 +11,8 @@ searching the internet, and checking the weather.
 
 ### Linux and Mac
 ```
-mkdir build && cd build
-cmake ..
-make
+mvn package
+java -cp target/virtual-assistant-1.0-SNAPSHOT.jar app.Main
 ```
 The VirtualAssistant executable will be created in the bin/ directory
 
