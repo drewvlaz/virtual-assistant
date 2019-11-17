@@ -1,5 +1,3 @@
-package app;
-
 // This program is a multinomial Naive Bayes classifier for
 // for text classification
 //
@@ -19,6 +17,8 @@ package app;
 // feature set, the denominator (P(B)) remains constant 
 // because it is the given input to be classified and can
 // therefore be disregarded in the calculations
+
+package app;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -160,7 +160,7 @@ public class MultinomialNB {
     // @param sentence: input to clean
     public String[] clean(String input) {
 	String clean = "";
-	input = input.toLowerCase();
+	input = input.toLowerCase().trim();
 
 	for (int i = 0; i < input.length(); i++) {
 		char c = input.charAt(i);
