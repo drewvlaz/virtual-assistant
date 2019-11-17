@@ -9,12 +9,13 @@ searching the internet, and checking the weather.
 
 ## Building
 
+This project uses Maven to handle building. Be sure to have it installed on your system.
+
 ### Linux and Mac
 ```
 mvn package
 java -cp target/virtual-assistant-1.0-SNAPSHOT.jar app.Main
 ```
-The VirtualAssistant executable will be created in the bin/ directory
 
 ### Windows
 Good luck
