@@ -1,4 +1,4 @@
-# A Simple Virtual Assistant in C++
+# A Simple Virtual Assistant
 
 ***Notice: Still in development and currently translating to Java***
 
