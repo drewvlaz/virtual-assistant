@@ -20,5 +20,7 @@ public class Main {
         in.close();
         model.classify(sentence);
         model.DisplayCategoryProbabilities();
+
+        System.out.println(Actions.getJoke());
     }
 }
