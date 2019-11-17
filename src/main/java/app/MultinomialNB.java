@@ -56,11 +56,7 @@ public class MultinomialNB {
     // Add training data from csv file
     // @param file: path to file of dataset
     public void addTrainingData(String file) throws IOException {
-        BufferedReader csv = new BufferedReader(
-            new FileReader(
-                file
-            )
-        );
+        BufferedReader csv = new BufferedReader(new FileReader(file));
         String line;
 
         while ((line = csv.readLine()) != null) {
