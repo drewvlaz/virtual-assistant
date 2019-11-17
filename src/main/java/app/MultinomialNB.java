@@ -160,7 +160,7 @@ public class MultinomialNB {
     // @param sentence: input to clean
     public String[] clean(String input) {
 	String clean = "";
-	input = input.toLowerCase();
+	input = input.toLowerCase().trim();
 
 	for (int i = 0; i < input.length(); i++) {
 		char c = input.charAt(i);
