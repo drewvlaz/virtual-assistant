@@ -7,3 +7,5 @@ data/api_keys.json
 *.o
 *.out
 *.class
+.classpath
+.project
