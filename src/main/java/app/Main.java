@@ -4,7 +4,7 @@ import java.util.Scanner;
 import java.io.IOException;
 
 
-public class App {
+public class Main {
     public static void main(String[] args) throws IOException {
         // Declare variables
         Scanner in = new Scanner(System.in);
