@@ -2,9 +2,7 @@
 bin/
 build/
 data/api_keys.json
+target/
 *.o
 *.out
-spike/a.out
-tree.txt
 *.class
-/target
