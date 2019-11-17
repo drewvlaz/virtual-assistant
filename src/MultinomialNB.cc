@@ -68,9 +68,8 @@ void MultinomialNB::Train() {
                     static_cast<double>(category.bag_of_words[word] + 1)
                     / (category.word_count + m_vocabulary.size())
                 };
-                #if DEBUG
                 std::cout << word << ": " << category.probabilities[word] << std::endl;
-                #endif
+                std::cout << category.word_count << "\n";
             }
         }
     }
