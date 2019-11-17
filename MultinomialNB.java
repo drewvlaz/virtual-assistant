@@ -19,7 +19,11 @@
 // therefore be disregarded in the calculations
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 
 public class MultinomialNB {
     // Instance variables
@@ -47,10 +51,27 @@ public class MultinomialNB {
         return categoryProbabilities;
     }
 
+    // Add training data from csv file
+    // @param file: path to file of dataset
+    public void addTrainingData(String file) throws IOException {
+        BufferedReader csv = new BufferedReader(new FileReader(file));
+        String line;
+
+        while ((line = csv.readLine()) != null) {
+            String[] dataset = line.split(",");
+            String label = dataset[0];
+            String[] sentences = Arrays.copyOfRange(dataset, 1, dataset.length);
+            addTrainingData(label, sentences);
+        }
+        
+        csv.close();
+    }
+
+
     // Add training data
     // @param label: label of data category
     // @param sentences: training data sentence examples
-    public void addTrainingData(String label, ArrayList<String> sentences) {
+    public void addTrainingData(String label, String[] sentences) {
         // Holds the words of each sentence
         ArrayList<String[]> phrases = new ArrayList<>();
 
