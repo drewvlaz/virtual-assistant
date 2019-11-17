@@ -1,8 +1,9 @@
 .vscode/
+.settings/
 bin/
 build/
-data/api_keys.json
 target/
+data/api_keys.json
 *.o
 *.out
 *.class
