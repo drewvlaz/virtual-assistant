@@ -18,7 +18,7 @@
 // because it is the given input to be classified and can
 // therefore be disregarded in the calculations
 
-package app;
+package seniorproject;
 
 import java.util.ArrayList;
 import java.util.Arrays;

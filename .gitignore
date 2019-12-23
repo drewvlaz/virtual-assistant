@@ -3,7 +3,7 @@
 bin/
 build/
 target/
-data/api_keys.json
+src/main/resources/api_keys.json
 *.o
 *.out
 *.class
