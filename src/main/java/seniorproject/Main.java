@@ -8,7 +8,7 @@ import org.json.simple.parser.ParseException;
 public class Main {
     public static void main(String[] args) throws IOException, ParseException {
         // Declare variables
-        Scanner in = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         MultinomialNB model = new MultinomialNB();
         String sentence, label;
 
@@ -17,11 +17,12 @@ public class Main {
         model.train();
 
         System.out.print("Enter a sentence: ");
-        sentence = in.nextLine();
-        in.close();
+        sentence = sc.nextLine();
+        sc.close();
 
         label = model.classify(sentence);
-        model.DisplayCategoryProbabilities();
+        String probabilities = model.getFormattedProbabilities();
+        System.out.println(probabilities);
 
         // Spacing
         System.out.println("\n");
@@ -42,6 +43,9 @@ public class Main {
                 break;
             case "search":
                 System.out.println("What would you like me to look-up? ");
+                break;
+            default:
+                System.out.println("Hmm, I don't understand what you're asking");
                 break;
         }
 

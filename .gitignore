@@ -4,6 +4,7 @@ bin/
 build/
 target/
 src/main/resources/api_keys.json
+src/main/resources/weather.json
 *.o
 *.out
 *.class
