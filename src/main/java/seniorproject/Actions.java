@@ -20,14 +20,14 @@ public class Actions {
     // @param file: String of file location
     // @return text: Array of text in file
     public static ArrayList<String> readFile(String file) throws IOException {
-        BufferedReader csv = new BufferedReader(new FileReader(file));
+        BufferedReader br = new BufferedReader(new FileReader(file));
         String line;
         ArrayList<String> text = new ArrayList<>();
 
-        while ((line = csv.readLine()) != null) {
+        while ((line = br.readLine()) != null) {
             text.add(line);
         }
-        csv.close();
+        br.close();
 
         return text;
     }

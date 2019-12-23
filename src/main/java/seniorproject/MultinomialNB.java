@@ -148,7 +148,7 @@ public class MultinomialNB {
     }
 
     private boolean confidentModel() {
-        double[] probabilities = getModelProbabilities();
+        double[] probabilities = getPredictionProbabilities();
         boolean confidence = false;
 
         for (double prob : probabilities) {
@@ -163,7 +163,7 @@ public class MultinomialNB {
 
     // Calculate the probabilities for each category
     // @return formatted String of probabilities for each category
-    private double[] getModelProbabilities() {
+    private double[] getPredictionProbabilities() {
         double[] probabilities = new double[trainingData.size()];
         double sum = 0;
 
@@ -180,7 +180,7 @@ public class MultinomialNB {
 
     public String getFormattedProbabilities() {
         DecimalFormat df = new DecimalFormat("0.00%");
-        double[] probabilities = getModelProbabilities();
+        double[] probabilities = getPredictionProbabilities();
         String formattedProbs = "";
 
         for (int i = 0; i < categoryProbabilities.size(); i++) {
