@@ -14,7 +14,7 @@ This project uses Maven to handle building. Be sure to have it installed on your
 ### Linux and Mac
 ```
 mvn package
-java -cp target/virtual-assistant-1.0-SNAPSHOT.jar app.Main
+java -cp target/virtual-assistant.jar app.Main
 ```
 
 ### Windows
