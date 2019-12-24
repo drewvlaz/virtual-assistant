@@ -20,20 +20,20 @@ public class Actions {
     // @param file: String of file location
     // @return text: Array of text in file
     public static ArrayList<String> readFile(String file) throws IOException {
-        BufferedReader csv = new BufferedReader(new FileReader(file));
+        BufferedReader br = new BufferedReader(new FileReader(file));
         String line;
         ArrayList<String> text = new ArrayList<>();
 
-        while ((line = csv.readLine()) != null) {
+        while ((line = br.readLine()) != null) {
             text.add(line);
         }
-        csv.close();
+        br.close();
 
         return text;
     }
 
     // Get a joke
-    // @return joke: random joke from file
+    // @return a random joke from file
     public static String getJoke() throws IOException {
         ArrayList<String> jokes = readFile("./src/main/resources/jokes.txt");
         String joke;
@@ -50,6 +50,8 @@ public class Actions {
         return greetings.get((int)(Math.random() * greetings.size()));
     }
 
+    // Get a weather summary
+    // @return a weather summary from the DarkSky api
     public static String getWeatherSummary() throws IOException, ParseException {
         // Access information for a summary
         JSONObject weather = downloadWeather();
@@ -87,5 +89,4 @@ public class Actions {
 
         return (JSONObject)parser.parse(new FileReader(weatherPath));
     }
-
 }

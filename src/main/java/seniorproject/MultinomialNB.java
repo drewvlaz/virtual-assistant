@@ -26,6 +26,7 @@ import java.util.Collections;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.DecimalFormat;
 
 public class MultinomialNB {
     // Instance variables
@@ -132,17 +133,38 @@ public class MultinomialNB {
         }
 
         // Return the category name with highest probability
-        return trainingData.get(
-            categoryProbabilities.indexOf(
-                Collections.max(
-                    categoryProbabilities
+        if (confidentModel()) {
+            return trainingData.get(
+                categoryProbabilities.indexOf(
+                    Collections.max(
+                        categoryProbabilities
+                    )
                 )
-            )
-        ).getLabel();
+            ).getLabel();
+        }
+        else {
+            return "Unknown";
+        }
     }
 
-    // Display the probabilities for each category
-    public void DisplayCategoryProbabilities() {
+    private boolean confidentModel() {
+        double[] probabilities = getPredictionProbabilities();
+        boolean confidence = false;
+
+        for (double prob : probabilities) {
+            if (prob > .5) {
+                confidence = true;
+                break;
+            }
+        }
+
+        return confidence;
+    }
+
+    // Calculate the probabilities for each category
+    // @return formatted String of probabilities for each category
+    private double[] getPredictionProbabilities() {
+        double[] probabilities = new double[trainingData.size()];
         double sum = 0;
 
         for (double probability : categoryProbabilities) {
@@ -150,15 +172,28 @@ public class MultinomialNB {
         }
 
         for (int i = 0; i < categoryProbabilities.size(); i++) {
-            double percentage = categoryProbabilities.get(i) / sum * 100;
-            System.out.printf("%s: %.2f%%%n", trainingData.get(i).getLabel(), percentage);
+            probabilities[i] = categoryProbabilities.get(i) / sum;
         }
+
+        return probabilities;
+    }
+
+    public String getFormattedProbabilities() {
+        DecimalFormat df = new DecimalFormat("0.00%");
+        double[] probabilities = getPredictionProbabilities();
+        String formattedProbs = "";
+
+        for (int i = 0; i < categoryProbabilities.size(); i++) {
+            formattedProbs += trainingData.get(i).getLabel() + ": " + df.format(probabilities[i]) + "\n";
+        }
+        
+        return formattedProbs;
     }
 
     // Clean the input data by removing special characters
     // and converting to lowercase
     // @param sentence: input to clean
-    public String[] clean(String input) {
+    private String[] clean(String input) {
         String clean = "";
         input = input.toLowerCase().trim();
 
