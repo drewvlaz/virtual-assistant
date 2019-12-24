@@ -1,11 +1,12 @@
-package app;
+package seniorproject;
 
 import java.util.Scanner;
 import java.io.IOException;
 
+import org.json.simple.parser.ParseException;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, ParseException {
         // Declare variables
         Scanner in = new Scanner(System.in);
         MultinomialNB model = new MultinomialNB();
@@ -22,6 +23,9 @@ public class Main {
         label = model.classify(sentence);
         model.DisplayCategoryProbabilities();
 
+        // Spacing
+        System.out.println("\n");
+
         // Execute user's request
         switch (label) {
             case "jokes":
@@ -31,7 +35,7 @@ public class Main {
                 System.out.println("Grades pending");
                 break;
             case "weather":
-                System.out.println("Retrieving wethaer data");
+                System.out.println(Actions.getWeatherSummary());
                 break;
             case "greeting":
                 System.out.println(Actions.getGreeting());
