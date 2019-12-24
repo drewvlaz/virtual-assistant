@@ -37,26 +37,6 @@
       <version>1.1.1</version>
     </dependency>
 
-    <!-- Jackson library for reading and writing to JSON files-->
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-core</artifactId>
-      <version>2.9.6</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-annotations</artifactId>
-      <version>2.9.6</version>
-    </dependency>
-
-    <dependency>
-      <groupId>com.fasterxml.jackson.core</groupId>
-      <artifactId>jackson-databind</artifactId>
-      <version>2.9.6</version>
-    </dependency>
-
-
     <!-- Jsoup for parsing html -->
     <dependency>
         <groupId>org.jsoup</groupId>
