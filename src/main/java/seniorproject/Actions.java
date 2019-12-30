@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.text.DecimalFormat;
 
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -53,16 +54,17 @@ public class Actions {
     // Get a weather summary
     // @return a weather summary from the DarkSky api
     public static String getWeatherSummary() throws IOException, ParseException {
+        DecimalFormat df = new DecimalFormat("#,###");
         // Access information for a summary
         JSONObject weather = downloadWeather();
         JSONObject currently = (JSONObject)weather.get("currently");
         String summary = (
             "Current Weather"
             + "\n\tSummary: " + currently.get("summary")
-            + "\n\tTemperature: " + currently.get("temperature") + " " + (char)176 + "F"
-            + "\n\tFeels Like: " + currently.get("apparentTemperature") + " " + (char)176 + "F"
-            + "\n\tChance of Rain: " + currently.get("precipProbability") + " %"
-            + "\n\tHumidity: " + ((Double)currently.get("humidity") * 100) + " %"
+            + "\n\tTemperature: " + df.format(currently.get("temperature")) + " " + (char)176 + "F"
+            + "\n\tFeels Like: " + df.format(currently.get("apparentTemperature")) + " " + (char)176 + "F"
+            + "\n\tChance of Rain: " + df.format(currently.get("precipProbability")) + " %"
+            + "\n\tHumidity: " + df.format(((Double)currently.get("humidity")) * 100) + " %"
         );
 
         return summary;
