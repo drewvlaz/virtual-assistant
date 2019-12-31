@@ -33,7 +33,7 @@ public class Main {
                 System.out.println(Actions.getJoke());
                 break;
             case "grades":
-                System.out.println("Grades pending");
+                System.out.println(Actions.getGrades());
                 break;
             case "weather":
                 System.out.println(Actions.getWeatherSummary());
