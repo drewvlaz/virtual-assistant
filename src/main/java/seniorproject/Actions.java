@@ -20,10 +20,8 @@ import org.jsoup.select.Elements;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
-import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
-import com.gargoylesoftware.htmlunit.html.HtmlSpan;
 
 
 public class Actions {
@@ -129,12 +127,14 @@ public class Actions {
         // Read in key to access weather api and concatenate url
         JSONParser parser = new JSONParser();
         String weatherKey = getJsonKey("weather");
-        String address = "https://api.darksky.net/forecast/" + weatherKey + "/40.957130,-74.737640";
+        String latitude = "40.682201";
+        String longitude = "-80.104919";
+        String address = "https://api.darksky.net/forecast/" + weatherKey + "/" + latitude + "," + longitude;
         // System.out.println(address);
 
         // Grab json file from api
         String weatherPath = "./src/main/resources/weather.json";
-        Document doc = Jsoup.connect(address).ignoreContentType(true).get();
+        Document doc = Jsoup.connect(address).validateTLSCertificates(false).ignoreContentType(true).get();
         BufferedWriter writer = new BufferedWriter(new FileWriter(weatherPath));
         writer.write(doc.text());
         writer.close();
