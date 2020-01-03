@@ -20,10 +20,8 @@ import org.jsoup.select.Elements;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
-import com.gargoylesoftware.htmlunit.html.HtmlSubmitInput;
 import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
-import com.gargoylesoftware.htmlunit.html.HtmlSpan;
 
 
 public class Actions {
@@ -66,6 +64,7 @@ public class Actions {
     // @return a weather summary from the DarkSky api
     public static String getWeatherSummary() throws IOException, ParseException {
         DecimalFormat df = new DecimalFormat("#,###");
+        DecimalFormat dfPercent = new DecimalFormat("#%");
         // Access information for a summary
         JSONObject weather = downloadWeather();
         JSONObject currently = (JSONObject)weather.get("currently");
@@ -74,8 +73,8 @@ public class Actions {
             + "\n\tSummary: " + currently.get("summary")
             + "\n\tTemperature: " + df.format(currently.get("temperature")) + " " + (char)176 + "F"
             + "\n\tFeels Like: " + df.format(currently.get("apparentTemperature")) + " " + (char)176 + "F"
-            + "\n\tChance of Rain: " + df.format(currently.get("precipProbability")) + " %"
-            + "\n\tHumidity: " + df.format(((Double)currently.get("humidity")) * 100) + " %"
+            + "\n\tChance of Rain: " + dfPercent.format(currently.get("precipProbability"))
+            + "\n\tHumidity: " + dfPercent.format(currently.get("humidity"))
         );
 
         return summary;
@@ -96,9 +95,8 @@ public class Actions {
         HtmlPasswordInput passwordField = loginForm.getInputByName("txt_Password");
 
         // Enter credentials and login
-        String username = getJsonKey("grade_username");
-        String password = getJsonKey("grade_password");
-
+        String username = getJsonFromKey("grade_username");
+        String password = getJsonFromKey("grade_password");
         usernameField.type(username);
         passwordField.type(password);
 
@@ -109,6 +107,7 @@ public class Actions {
         Elements elems = doc.body().getElementsByTag("span");
         List<String> text = elems.eachText();
         String gradeSummary = "";
+        client.close();
 
         // Parse the subject name and grade for each class
         for (int i = 0; i < text.size() - 3; i++) {
@@ -128,13 +127,15 @@ public class Actions {
     private static JSONObject downloadWeather() throws IOException, ParseException {
         // Read in key to access weather api and concatenate url
         JSONParser parser = new JSONParser();
-        String weatherKey = getJsonKey("weather");
-        String address = "https://api.darksky.net/forecast/" + weatherKey + "/40.957130,-74.737640";
+        String weatherKey = getJsonFromKey("weather");
+        String latitude = "40.682201";
+        String longitude = "-80.104919";
+        String address = "https://api.darksky.net/forecast/" + weatherKey + "/" + latitude + "," + longitude;
         // System.out.println(address);
 
         // Grab json file from api
         String weatherPath = "./src/main/resources/weather.json";
-        Document doc = Jsoup.connect(address).ignoreContentType(true).get();
+        Document doc = Jsoup.connect(address).validateTLSCertificates(false).ignoreContentType(true).get();
         BufferedWriter writer = new BufferedWriter(new FileWriter(weatherPath));
         writer.write(doc.text());
         writer.close();
@@ -145,7 +146,7 @@ public class Actions {
     // Get a key from json file
     // @param element name to retrieve
     // @return element's value
-    private static String getJsonKey(String element) throws IOException, ParseException {
+    private static String getJsonFromKey(String element) throws IOException, ParseException {
         // Read in keys
         String keyPath = "./src/main/resources/api_keys.json";
         JSONParser parser = new JSONParser();
