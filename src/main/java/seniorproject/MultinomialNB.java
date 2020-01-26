@@ -27,6 +27,12 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.DecimalFormat;
+import java.io.FileNotFoundException;
+
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
 public class MultinomialNB {
     // Instance variables
@@ -70,6 +76,49 @@ public class MultinomialNB {
         csv.close();
     }
 
+    public void readJson(String path) {
+        try {
+            JSONParser parser = new JSONParser();
+            JSONObject file = (JSONObject)parser.parse(new FileReader(path));
+            String[] labels = (String[]) ((Object[])file.get("labels"))[0];
+            // Object obj = parser.parse(new FileReader(path));
+            // JSONArray file = new JSONArray();
+            // file.add(obj);
+            // String labels[] = parseJson(file.get("labels"));
+            // String labels = file.get("labels");
+
+            // for (String label : labels) {
+            //     String sentences[] = parseJson(file.get(label));
+            //     System.out.println(Arrays.toString(sentences));
+            //     addTrainingData(label, sentences);
+            // }
+            System.out.println(file);
+            System.out.println(labels);
+            System.out.println(file.get("labels"));
+            // System.out.println(Arrays.toString(labels));
+
+        }
+        catch (IOException e) {
+            e.printStackTrace();
+        }
+        catch (ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private static String[] parseJson(Object obj) {
+        String temp = "" + obj;
+        String parsed = "";
+
+            parsed += temp.substring(temp.indexOf("\""), temp.indexOf("\",")) + ",";
+            temp = temp.substring(temp.indexOf("\","));
+
+        System.out.println(parsed);
+        System.out.println(temp);
+        System.out.println("\n");
+
+        return parsed.split(",");
+    }
 
     // Add training data
     // @param label: label of data category
@@ -193,7 +242,7 @@ public class MultinomialNB {
     // Clean the input data by removing special characters
     // and converting to lowercase
     // @param sentence: input to clean
-    private String[] clean(String input) {
+    private static String[] clean(String input) {
         String clean = "";
         input = input.toLowerCase().trim();
 

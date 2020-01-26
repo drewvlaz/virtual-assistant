@@ -1,4 +1,8 @@
 {
+    "labels": [
+        "weather",
+        "grades"
+    ],
     "weather" : [ 
         "how is the weather",
         "is it rainy outside",

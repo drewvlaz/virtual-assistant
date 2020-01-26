@@ -13,6 +13,7 @@ public class Main {
         String sentence, label;
 
         model.addTrainingData("./src/main/resources/data.csv");
+        model.readJson("./src/main/resources/data.json");
         model.prepareData();
         model.train();
 
@@ -48,6 +49,5 @@ public class Main {
                 System.out.println("Hmm, I don't understand what you're asking");
                 break;
         }
-
     }
 }
