@@ -1,7 +1,9 @@
 {
     "labels": [
         "weather",
-        "grades"
+        "grades",
+        "jokes",
+        "greeting"
     ],
     "weather" : [ 
         "how is the weather",
@@ -34,5 +36,52 @@
         "can i see my grades",
         "has my teacher updated my grades",
         "how did i do on the homework assignment"
+    ],
+    "search" : [
+        "can you look up",
+        "google this please",
+        "what is the definition of",
+        "look up this for me",
+        "hey google what is",
+        "i want to search the internet",
+        "look up online",
+        "google online definition internet information",
+        "i would like to know",
+        "i need to search for",
+        "can you tell me what the answer is",
+        "search the internet for",
+        "google the answer to",
+        "i need to ask a question",
+        "look up online using the internet"
+    ],
+    "jokes" : [
+        "can you tell me a joke",
+        "give me something funny",
+        "i want to hear a joke",
+        "lighten the mood for me",
+        "tell me something funny",
+        "i am bored can i hear a joke",
+        "tell me a joke",
+        "humor me",
+        "show some sense of humor",
+        "i need to here a joke right about now"
+    ],
+    "greeting" : [
+        "hello how are you",
+        "hello",
+        "nice to meet you",
+        "hey how is it going",
+        "hows it going",
+        "whats up",
+        "hello its nice to meet you",
+        "hey",
+        "hello my name is",
+        "hey im",
+        "whats you name",
+        "what do you call yourself",
+        "good morning",
+        "good afternoon",
+        "good night evening",
+        "how are you doing"
     ]
 }
