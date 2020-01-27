@@ -4,11 +4,15 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.BufferedWriter;
+import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.text.DecimalFormat;
 
+import org.apache.commons.io.FilenameUtils;
+import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
@@ -80,6 +84,8 @@ public class Actions {
         return summary;
     }
 
+    // Downloads grades from portal
+    // @return string of grades for each class 
     public static String getGrades() throws IOException, ParseException {
         // Inintialize web client options and connect to url
         String url = "https://portal.svsd.net/students";
