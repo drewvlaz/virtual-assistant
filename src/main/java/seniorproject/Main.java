@@ -12,8 +12,8 @@ public class Main {
         MultinomialNB model = new MultinomialNB();
         String sentence, label;
 
-        model.addTrainingData("./src/main/resources/data.csv");
-        model.readJson("./src/main/resources/data.json");
+        // model.addTrainingData("./src/main/resources/data.csv");
+        model.readTrainingData("./src/main/resources/data.json");
         model.prepareData();
         model.train();
 
