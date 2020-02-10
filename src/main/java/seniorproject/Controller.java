@@ -7,43 +7,43 @@ import java.io.IOException;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Button;
 
 import org.json.simple.parser.ParseException;
 
 public class Controller {
+    private MultinomialNB model;
+
+    // FXML elements automatically loaded
 	@FXML
-	// The reference of inputText will be injected by the FXML loader
-	private TextField inputText;
-	
-	// The reference of outputText will be injected by the FXML loader
+    private TextField inputText;
+
 	@FXML
-	private TextArea outputText;
-	
-	// location and resources will be automatically injected by the FXML loader	
+    private TextArea outputText;
+
 	@FXML
-	private URL location;
+	private Button sendBtn;
 	
-	@FXML
-	private ResourceBundle resources;
-	
-	// Add a public no-args constructor
+	// Constructor
 	public Controller() {}
 	
+	// @FXML
+    // private void initialize() {}
+    
 	@FXML
-	private void initialize() {}
-	
-	@FXML
-    private void printOutput() throws IOException, ParseException {
-        MultinomialNB model = new MultinomialNB();
-        String label;
+    private void respond() throws IOException, ParseException {
+        // Reset text field from previous request
+        outputText.clear();
 
+        // Create and train model
+        MultinomialNB model = new MultinomialNB();
         model.readTrainingData("./src/main/resources/data.json");
         model.prepareData();
         model.train();
 
-        label = model.classify(inputText.getText());
-        String probabilities = model.getFormattedProbabilities();
-        System.out.println(probabilities);
+        // Classify text
+        String label = model.classify(inputText.getText());
+        System.out.println(model.getFormattedProbabilities());
 
         // Execute user's request
         switch (label) {
@@ -58,9 +58,6 @@ public class Controller {
                 break;
             case "greeting":
                 outputText.setText(Actions.getGreeting());
-                break;
-            case "search":
-                outputText.setText("What would you like me to look-up? ");
                 break;
             default:
                 outputText.setText("Hmm, I don't understand what you're asking");

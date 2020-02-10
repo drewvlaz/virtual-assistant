@@ -8,6 +8,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Calendar;
 import java.text.DecimalFormat;
 
 import org.json.simple.JSONObject;
@@ -110,6 +111,7 @@ public class Actions {
             Document doc = Jsoup.parse(page.asXml());
             Elements elems = doc.body().getElementsByTag("span");
             List<String> text = elems.eachText();
+            // String gradeSummary = Calendar.getInstance().getTime() + "\n";
             String gradeSummary = "";
             client.close();
 
@@ -131,6 +133,7 @@ public class Actions {
             bw.write(gradeSummary);
             bw.close();
 
+            // return gradeSummary.substring(gradeSummary.indexOf("\n") + 1);
             return gradeSummary;
         }
         catch (UnknownHostException e) {
