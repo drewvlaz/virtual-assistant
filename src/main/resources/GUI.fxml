@@ -10,11 +10,11 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="395.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="363.0" prefWidth="395.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox layoutX="13.0" layoutY="10.0" prefHeight="343.0" prefWidth="370.0" style="-fx-padding: 10; -fx-border-style: solid inside; -fx-border-width: 4; -fx-border-insets: 5; -fx-border-radius: 5; -fx-border-color: orange;">
          <children>
-            <Label contentDisplay="CENTER" prefHeight="30.0" prefWidth="138.0" text="How can I help you?" textOverrun="CLIP">
+            <Label contentDisplay="CENTER" prefHeight="28.0" prefWidth="158.0" text="How can I help you?" textOverrun="CLIP">
                <rotationAxis>
                   <Point3D />
                </rotationAxis>
