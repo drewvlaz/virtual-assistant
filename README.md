@@ -1,6 +1,6 @@
 # A Simple Virtual Assistant
 
-***Notice: Still in development and currently translating to Java***
+***Notice: Still in development***
 
 ## Overview
 This is a virtual assistant aimed for students powered by Naive Bayes.
