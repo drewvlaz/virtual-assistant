@@ -4,7 +4,7 @@
 
 ## Overview
 This is a virtual assistant aimed for students powered by Naive Bayes.
-Actions currently in development are checking grades, greetings, telling jokes,
+Actions currently in development are checking grades, exchanging greetings, telling jokes,
 searching the internet, and checking the weather.
 
 ## Demo
