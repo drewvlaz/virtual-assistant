@@ -17,7 +17,7 @@ This project uses Maven to handle building. Be sure to have it installed on your
 ### Linux and Mac
 ```
 mvn package
-java -cp target/virtual-assistant.jar seniorproject.Main
+java -cp target/virtual-assistant.jar seniorproject.GUI
 ```
 
 ### Windows
