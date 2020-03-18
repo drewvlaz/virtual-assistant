@@ -24,7 +24,7 @@ public class GUI extends Application
         loader.setController(new Controller());
 
         // Path to the FXML File
-        String fxmlDocPath = "./src/main/resources/GUI.fxml";
+        String fxmlDocPath = "./src/main/resources/AssistantMessenger.fxml";
         FileInputStream fxmlStream = new FileInputStream(fxmlDocPath);
          
         // Create the Pane and all Details

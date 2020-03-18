@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="550.0" prefWidth="680.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <MenuBar prefHeight="29.0" prefWidth="520.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="New" />
+                  <MenuItem mnemonicParsing="false" text="Open…" />
+                  <Menu mnemonicParsing="false" text="Open Recent" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Close" />
+                  <MenuItem mnemonicParsing="false" text="Save" />
+                  <MenuItem mnemonicParsing="false" text="Save As…" />
+                  <MenuItem mnemonicParsing="false" text="Revert" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Preferences…" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Quit" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Edit">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Undo" />
+                  <MenuItem mnemonicParsing="false" text="Redo" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Cut" />
+                  <MenuItem mnemonicParsing="false" text="Copy" />
+                  <MenuItem mnemonicParsing="false" text="Paste" />
+                  <MenuItem mnemonicParsing="false" text="Delete" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem mnemonicParsing="false" text="Select All" />
+                  <MenuItem mnemonicParsing="false" text="Unselect All" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="550.0" prefWidth="683.0" style="-fx-background-color: linear-gradient(to top, #4481eb 0%, #04befe 100%);;">
+         <children>
+            <ScrollPane fx:id="container" hbarPolicy="NEVER" layoutX="177.0" layoutY="72.0" prefHeight="400.0" prefWidth="521.0" vbarPolicy="ALWAYS">
+               <content>
+                  <VBox fx:id="chatBox" prefHeight="398.0" prefWidth="505.0" />
+               </content>
+            </ScrollPane>
+            <Pane layoutX="177.0" prefHeight="72.0" prefWidth="521.0" style="-fx-background-color: #122b41;" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Label layoutX="173.0" layoutY="17.0" text="Virtual Assistant" textFill="WHITE">
+                     <font>
+                        <Font name="Roboto Condensed Regular" size="27.0" />
+                     </font>
+                  </Label>
+               </children>
+            </Pane>
+            <VBox prefHeight="550.0" prefWidth="177.0">
+               <children>
+                  <HBox prefHeight="176.0" prefWidth="177.0" style="-fx-background-color: #122b41;">
+                     <children>
+                        <Pane prefHeight="177.0" prefWidth="177.0">
+                           <children>
+                              <FontAwesomeIconView fill="#69b2ee" glyphName="IOXHOST" layoutX="39.0" layoutY="113.0" textAlignment="CENTER" wrappingWidth="98.58691341429949">
+                                 <font>
+                                    <Font size="65.0" />
+                                 </font>
+                              </FontAwesomeIconView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="188.0" style="-fx-background-color: #122b41;">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <FontAwesomeIconView fill="WHITE" glyphName="QUESTION" layoutY="36.0" textAlignment="CENTER" wrappingWidth="53.0">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </FontAwesomeIconView>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="8.0" prefHeight="34.0" prefWidth="100.0" text="Help" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Condensed Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="188.0" style="-fx-background-color: #122b41;">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="8.0" prefHeight="34.0" prefWidth="100.0" text="Settings" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Condensed Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                              <FontAwesomeIconView fill="WHITE" glyphName="COGS" layoutY="36.0" textAlignment="CENTER" wrappingWidth="53.0">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </FontAwesomeIconView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="50.0" prefWidth="177.0" style="-fx-background-color: #122b41;">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0">
+                           <children>
+                              <FontAwesomeIconView fill="WHITE" glyphName="UNDO" layoutY="36.0" textAlignment="CENTER" wrappingWidth="53.0">
+                                 <font>
+                                    <Font size="28.0" />
+                                 </font>
+                              </FontAwesomeIconView>
+                              <Label alignment="CENTER" contentDisplay="CENTER" layoutX="53.0" layoutY="8.0" prefHeight="34.0" prefWidth="100.0" text="Reset" textAlignment="CENTER" textFill="WHITE">
+                                 <font>
+                                    <Font name="Roboto Condensed Regular" size="20.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="228.0" prefWidth="177.0" style="-fx-background-color: #122b41;">
+                     <children>
+                        <Pane prefHeight="200.0" prefWidth="200.0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <HBox layoutX="177.0" layoutY="471.0" opacity="0.8" prefHeight="79.0" prefWidth="521.0" style="-fx-background-color: #122b41;">
+               <children>
+                  <Pane prefHeight="80.0" prefWidth="528.0">
+                     <children>
+                        <JFXButton fx:id="sendBtn" layoutX="439.0" layoutY="19.0" onAction="#respond" style="-fx-background-color: #021b21;" text="Send" textFill="WHITE">
+                           <font>
+                              <Font name="Roboto Condensed Regular" size="20.0" />
+                           </font>
+                        </JFXButton>
+                        <TextField fx:id="inputText" layoutX="24.0" layoutY="19.0" onAction="#respond" prefHeight="42.0" prefWidth="387.0" promptText="How can I help you?">
+                           <font>
+                              <Font name="Roboto Condensed Regular" size="20.0" />
+                           </font>
+                        </TextField>
+                     </children>
+                  </Pane>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
