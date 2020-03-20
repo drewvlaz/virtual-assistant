@@ -8,10 +8,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
-import javafx.scene.layout.Pane;
 
 import com.jfoenix.controls.JFXButton;
-import com.jfoenix.controls.JFXScrollPane;
 
 import org.json.simple.parser.ParseException;
 
@@ -85,8 +83,7 @@ public class Controller {
         response.style(false);
 
         // Display in chatbox
-        container.setContent(chatBox);
-        chatBox.setSpacing(10);
+        // container.setContent(chatBox);
         chatBox.getChildren().add(userRequest);
         chatBox.getChildren().add(response);
 	}

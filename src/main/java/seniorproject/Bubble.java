@@ -5,10 +5,10 @@ package seniorproject;
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Paint;
 import javafx.geometry.Pos;
+import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
-import javafx.scene.text.FontStyle;
 
 public class Bubble extends HBox {
     // Instance variables
@@ -45,5 +45,6 @@ public class Bubble extends HBox {
         // Add message content to HBox bubble and adjust position
         this.getChildren().add(content);
         this.setAlignment(user ? Pos.BASELINE_RIGHT : Pos.BASELINE_LEFT);
+        this.setPadding(new Insets(10, 10, 10, 10));;
     }
 }
