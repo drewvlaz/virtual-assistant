@@ -33,9 +33,6 @@ public class Controller {
 
 	@FXML
     private VBox chatBox;
-
-	@FXML
-    private Pane chatField;
     
     @FXML
     private ResourceBundle resources;
@@ -83,7 +80,7 @@ public class Controller {
                 break;
         }
 
-        // Format response
+        // Format bubbles
         userRequest.style(true);
         response.style(false);
 
