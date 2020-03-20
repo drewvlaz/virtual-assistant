@@ -32,6 +32,7 @@ public class GUI extends Application
          
         // Create the Scene
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         // Set the Scene to the Stage
         stage.setScene(scene);
         // Set the Title to the Stage

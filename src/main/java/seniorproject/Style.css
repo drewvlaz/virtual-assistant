@@ -1,0 +1,11 @@
+.user-chat-bubble {
+    -fx-background-radius: 20px;
+    -fx-background-color: #4089ff;
+    -fx-padding: 8;
+}
+
+.response-chat-bubble {
+    -fx-background-radius: 20px;
+    -fx-background-color: #c6c8cc;
+    -fx-padding: 8;
+}
