@@ -5,9 +5,11 @@ import java.util.ResourceBundle;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
-import javafx.scene.control.Button;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.layout.VBox;
+
+import com.jfoenix.controls.JFXButton;
 
 import org.json.simple.parser.ParseException;
 
@@ -18,22 +20,34 @@ public class Controller {
 	@FXML
     private TextField inputText;
 
-	@FXML
-    private TextArea outputText;
+	// @FXML
+    // private TextArea outputText;
 
 	@FXML
-	private Button sendBtn;
+    private JFXButton sendBtn;
+
+	@FXML
+    private ScrollPane container;
+
+	@FXML
+    private VBox chatBox;
+    
+    @FXML
+    private ResourceBundle resources;
+
+    @FXML
+    private URL location;
 	
 	// Constructor
 	public Controller() {}
 	
-	// @FXML
-    // private void initialize() {}
+	@FXML
+    private void initialize() {}
     
 	@FXML
     private void respond() throws IOException, ParseException {
-        // Reset text field from previous request
-        outputText.clear();
+        Bubble userRequest = new Bubble(inputText.getText());
+        Bubble response = new Bubble();
 
         // Create and train model
         MultinomialNB model = new MultinomialNB();
@@ -48,20 +62,29 @@ public class Controller {
         // Execute user's request
         switch (label) {
             case "jokes":
-                outputText.setText(Actions.getJoke());
+                response.setContent(Actions.getJoke());
                 break;
             case "grades":
-                outputText.setText(Actions.getGrades());
+                response.setContent(Actions.getGrades());
                 break;
             case "weather":
-                outputText.setText(Actions.getWeatherSummary());
+                response.setContent(Actions.getWeatherSummary());
                 break;
             case "greeting":
-                outputText.setText(Actions.getGreeting());
+                response.setContent(Actions.getGreeting());
                 break;
             default:
-                outputText.setText("Hmm, I don't understand what you're asking");
+                response.setContent("Hmm, I don't understand what you're asking");
                 break;
         }
+
+        // Format bubbles
+        userRequest.style(true);
+        response.style(false);
+
+        // Display in chatbox
+        // container.setContent(chatBox);
+        chatBox.getChildren().add(userRequest);
+        chatBox.getChildren().add(response);
 	}
 }

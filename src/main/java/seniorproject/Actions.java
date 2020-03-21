@@ -179,7 +179,7 @@ public class Actions {
     // @return element's value
     private static String getJsonFromKey(String element) throws IOException, ParseException {
         // Read in keys
-        String keyPath = "./src/main/resources/api_keys.json";
+        String keyPath = "./src/main/resources/keys.json";
         JSONParser parser = new JSONParser();
         JSONObject keys = (JSONObject)parser.parse(new FileReader(keyPath));
 

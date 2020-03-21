@@ -13,6 +13,7 @@ public class GUI extends Application
 {
     public static void main(String[] args) 
     {
+        // Launch GUI
         Application.launch(args);
     }
      
@@ -24,7 +25,7 @@ public class GUI extends Application
         loader.setController(new Controller());
 
         // Path to the FXML File
-        String fxmlDocPath = "./src/main/resources/GUI.fxml";
+        String fxmlDocPath = "./src/main/resources/AssistantMessenger.fxml";
         FileInputStream fxmlStream = new FileInputStream(fxmlDocPath);
          
         // Create the Pane and all Details
@@ -32,6 +33,7 @@ public class GUI extends Application
          
         // Create the Scene
         Scene scene = new Scene(root);
+        scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
         // Set the Scene to the Stage
         stage.setScene(scene);
         // Set the Title to the Stage
