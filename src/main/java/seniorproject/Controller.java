@@ -44,10 +44,17 @@ public class Controller {
 	@FXML
     private void initialize() {}
     
+    // Responds to user input and updates GUI accordingly
 	@FXML
     private void respond() throws IOException, ParseException {
-        Bubble userRequest = new Bubble(inputText.getText());
-        Bubble response = new Bubble();
+        // Ensure user input text
+        if (inputText.getText().equals("")) {
+            return;
+        }
+
+        // Initialize messaging bubbles
+        Bubble userInput = new Bubble(inputText.getText());
+        Bubble computerResponse = new Bubble();
 
         // Create and train model
         MultinomialNB model = new MultinomialNB();
@@ -55,36 +62,38 @@ public class Controller {
         model.prepareData();
         model.train();
 
-        // Classify text
+        // Classify user input
         String label = model.classify(inputText.getText());
         System.out.println(model.getFormattedProbabilities());
 
         // Execute user's request
         switch (label) {
             case "jokes":
-                response.setContent(Actions.getJoke());
+                computerResponse.setContent(Actions.getJoke());
                 break;
             case "grades":
-                response.setContent(Actions.getGrades());
+                computerResponse.setContent(Actions.getGrades());
                 break;
             case "weather":
-                response.setContent(Actions.getWeatherSummary());
+                computerResponse.setContent(Actions.getWeatherSummary());
                 break;
             case "greeting":
-                response.setContent(Actions.getGreeting());
+                computerResponse.setContent(Actions.getGreeting());
                 break;
             default:
-                response.setContent("Hmm, I don't understand what you're asking");
+                computerResponse.setContent("Hmm, I don't understand what you're asking");
                 break;
         }
 
         // Format bubbles
-        userRequest.style(true);
-        response.style(false);
+        userInput.configure(true);
+        computerResponse.configure(false);
 
-        // Display in chatbox
-        // container.setContent(chatBox);
-        chatBox.getChildren().add(userRequest);
-        chatBox.getChildren().add(response);
+        // Display user input and computer response
+        chatBox.getChildren().add(userInput);
+        chatBox.getChildren().add(computerResponse);
+
+        // Clear user input from field for next response
+        inputText.clear();
 	}
 }

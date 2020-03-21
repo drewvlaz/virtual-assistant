@@ -2,12 +2,14 @@
     -fx-background-radius: 20px;
     -fx-background-color: #4089ff;
     -fx-padding: 8;
+    -fx-text-fill: "#ffffff";
 }
 
 .response-chat-bubble {
     -fx-background-radius: 20px;
     -fx-background-color: #e1e2e3;
     -fx-padding: 8;
+    -fx-text-fill: "#000000";
 }
 
 

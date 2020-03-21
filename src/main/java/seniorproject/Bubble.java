@@ -32,7 +32,7 @@ public class Bubble extends HBox {
     }
 
     // Style the bubble appropriately
-    public void style(boolean user) {
+    public void configure(boolean user) {
         // Set bubble and text colors and text font
         content.getStyleClass().add(user ? "user-chat-bubble" : "response-chat-bubble");
         content.setTextFill(Paint.valueOf(user ? "#ffffff" : "#000000"));
