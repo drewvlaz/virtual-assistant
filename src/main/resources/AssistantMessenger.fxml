@@ -114,7 +114,7 @@
                <children>
                   <Pane prefHeight="80.0" prefWidth="528.0">
                      <children>
-                        <JFXButton fx:id="sendBtn" layoutX="439.0" layoutY="19.0" onAction="#respond" style="-fx-background-color: #021b21;" text="Send" textFill="WHITE">
+                        <JFXButton fx:id="sendBtn" layoutX="439.0" layoutY="19.0" onAction="#respond" style="-fx-background-color: #0c2847;" text="Send" textFill="WHITE">
                            <font>
                               <Font name="Roboto Condensed Regular" size="20.0" />
                            </font>

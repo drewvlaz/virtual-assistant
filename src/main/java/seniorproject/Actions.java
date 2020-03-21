@@ -71,7 +71,7 @@ public class Actions {
         JSONObject weather = downloadWeather();
         JSONObject currently = (JSONObject)weather.get("currently");
         String weatherSummary = (
-            "Current Weather"
+            "Current Weather:"
             + "\n\tSummary: " + currently.get("summary")
             + "\n\tTemperature: " + df.format(currently.get("temperature")) + " " + (char)176 + "F"
             + "\n\tFeels Like: " + df.format(currently.get("apparentTemperature")) + " " + (char)176 + "F"
