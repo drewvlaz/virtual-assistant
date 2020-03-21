@@ -35,7 +35,6 @@ public class Bubble extends HBox {
     public void configure(boolean user) {
         // Set bubble and text colors and text font
         content.getStyleClass().add(user ? "user-chat-bubble" : "response-chat-bubble");
-        content.setTextFill(Paint.valueOf(user ? "#ffffff" : "#000000"));
         content.setFont(Font.font("HelveticaNeue", FontWeight.EXTRA_LIGHT, 14));
 
         // Wrap text and adjust length if too long
