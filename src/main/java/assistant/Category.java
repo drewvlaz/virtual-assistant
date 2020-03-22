@@ -2,7 +2,7 @@
 It will keep track of the characteristics 
 of each category in the training data */
 
-package seniorproject;
+package assistant;
 
 import java.util.ArrayList;
 import java.util.HashMap;

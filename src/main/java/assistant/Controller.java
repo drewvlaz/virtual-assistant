@@ -1,4 +1,4 @@
-package seniorproject;
+package assistant;
 
 import java.net.URL;
 import java.util.ResourceBundle;

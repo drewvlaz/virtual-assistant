@@ -1,6 +1,7 @@
-package seniorproject;
+package assistant;
 
 import java.io.FileInputStream;
+import java.io.File;
 import java.io.IOException;
  
 import javafx.application.Application;
@@ -29,15 +30,19 @@ public class GUI extends Application
         FileInputStream fxmlStream = new FileInputStream(fxmlDocPath);
          
         // Create the Pane and all Details
-        AnchorPane root = (AnchorPane) loader.load(fxmlStream);
+        AnchorPane root = (AnchorPane)loader.load(fxmlStream);
          
         // Create the Scene
         Scene scene = new Scene(root);
-        scene.getStylesheets().add(getClass().getResource("Style.css").toExternalForm());
-        // Set the Scene to the Stage
+
+        // Add css elements
+        File css = new File("./src/main/resources/style.css");
+        scene.getStylesheets().add("file:///" + css.getAbsolutePath().replace("\\", "/"));
+
+        // Set scene and title
         stage.setScene(scene);
-        // Set the Title to the Stage
         stage.setTitle("Virtual Assistant");
+
         // Display the Stage
         stage.show();
     }

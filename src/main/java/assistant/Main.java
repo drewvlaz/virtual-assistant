@@ -1,4 +1,4 @@
-package seniorproject;
+package assistant;
 
 import java.util.Scanner;
 import java.io.IOException;

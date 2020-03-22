@@ -1,4 +1,4 @@
-package seniorproject;
+package assistant;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
