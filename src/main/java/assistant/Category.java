@@ -1,6 +1,5 @@
-/* This class will be used like a struct.
-It will keep track of the characteristics 
-of each category in the training data */
+// This class will keep track of the characteristics 
+// of each category in the training data
 
 package assistant;
 

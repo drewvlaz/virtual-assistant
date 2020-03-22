@@ -19,25 +19,26 @@ public class Controller {
     // Instance variables
     private MultinomialNB model;
 
+
     // FXML elements automatically loaded
-	@FXML private TextField inputText;
-	@FXML private JFXButton sendBtn;
-	@FXML private ScrollPane container;
-	@FXML private VBox chatBox;
+    @FXML private TextField inputText;
+    @FXML private JFXButton sendBtn;
+    @FXML private ScrollPane container;
+    @FXML private VBox chatBox;
 	
-	// Constructor
-	public Controller() {
+    // Constructor
+    public Controller() {
         // Create and train model
         model = new MultinomialNB("./src/main/resources/data.json");
         model.prepareData();
         model.train();
     }
-	
-	@FXML
+
+    @FXML
     private void initialize() {}
     
     // Responds to user input and updates GUI accordingly
-	@FXML
+    @FXML
     private void respond() throws IOException, ParseException {
         // Ensure user input text
         if (inputText.getText().equals("")) {
