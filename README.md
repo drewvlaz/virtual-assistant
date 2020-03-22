@@ -8,7 +8,7 @@ Actions currently in development are checking grades, exchanging greetings, tell
 searching the internet, and checking the weather.
 
 ## Demo
-![Simple Demo](/assets/Demo.gif)
+![Simple Demo](/assets/Messaging_Demo.gif)
 
 ## Building
 
