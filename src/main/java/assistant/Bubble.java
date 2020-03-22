@@ -3,7 +3,6 @@
 package assistant;
 
 import javafx.scene.layout.HBox;
-import javafx.scene.paint.Paint;
 import javafx.geometry.Pos;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;

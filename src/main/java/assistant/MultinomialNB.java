@@ -180,18 +180,32 @@ public class MultinomialNB {
         }
     }
 
+    // Calculate probabilities from user input and format
+    // @return probabilities of each class
+    public String getFormattedProbabilities() {
+        DecimalFormat df = new DecimalFormat("0.00%");
+        double[] probabilities = getPredictionProbabilities();
+        String formattedProbs = "";
+
+        for (int i = 0; i < categoryProbabilities.size(); i++) {
+            formattedProbs += trainingData.get(i).getLabel() + ": " + df.format(probabilities[i]) + "\n";
+        }
+        
+        return formattedProbs;
+    }
+
     private boolean confidentModel() {
         double[] probabilities = getPredictionProbabilities();
-        boolean confidence = false;
+        boolean confident = false;
 
         for (double prob : probabilities) {
             if (prob > .4) {
-                confidence = true;
+                confident = true;
                 break;
             }
         }
 
-        return confidence;
+        return confident;
     }
 
     // Calculate the probabilities for each category
@@ -211,22 +225,10 @@ public class MultinomialNB {
         return probabilities;
     }
 
-    public String getFormattedProbabilities() {
-        DecimalFormat df = new DecimalFormat("0.00%");
-        double[] probabilities = getPredictionProbabilities();
-        String formattedProbs = "";
-
-        for (int i = 0; i < categoryProbabilities.size(); i++) {
-            formattedProbs += trainingData.get(i).getLabel() + ": " + df.format(probabilities[i]) + "\n";
-        }
-        
-        return formattedProbs;
-    }
-
     // Clean the input data by removing special characters
     // and converting to lowercase
     // @param sentence: input to clean
-    private static String clean(String input) {
+    private String clean(String input) {
         String clean = "";
         input = input.toLowerCase().trim();
 
@@ -243,7 +245,7 @@ public class MultinomialNB {
     // Clean the input data by removing special characters
     // and converting to lowercase
     // @param sentence: input to clean
-    private static String[] clean(String[] input) {
+    private String[] clean(String[] input) {
         for (int i = 0; i < input.length; i++) {
             input[i] = clean(input[i]);
         }

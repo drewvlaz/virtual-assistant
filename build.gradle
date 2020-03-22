@@ -16,7 +16,6 @@ dependencies {
     implementation 'net.sourceforge.htmlunit:htmlunit:2.36.0'
     implementation 'com.jfoenix:jfoenix:8.0.8'
     implementation 'de.jensd:fontawesomefx:8.9'
-    implementation 'junit:junit:4.13'
 }
 
 group = 'seniorproject'
@@ -28,14 +27,6 @@ targetCompatibility = '1.8'
 jar {
     manifest {
         attributes 'Main-Class': 'assistant.GUI'
-    }
-}
-sourceSets {
-    main {
-        resources {
-            srcDirs = ["src/main/java"]
-            includes = ["src/main/resources/style.css"]
-        }
     }
 }
 
