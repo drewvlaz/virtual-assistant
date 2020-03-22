@@ -1,13 +1,19 @@
+# Folders
 .vscode/
 .settings/
+.gradle/
+bin/
+build/
+target/
+
+# Files
 *.o
 *.out
 *.class
 .classpath
 .project
-bin/
-build/
-target/
+gradlew
+gradlew.bat
 src/main/resources/keys.json
 src/main/resources/weather.json
 src/main/resources/grades.txt

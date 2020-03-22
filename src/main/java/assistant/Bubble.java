@@ -1,6 +1,6 @@
 // This class controls the bubble created for messaging GUI
 
-package seniorproject;
+package assistant;
 
 import javafx.scene.layout.HBox;
 import javafx.scene.paint.Paint;

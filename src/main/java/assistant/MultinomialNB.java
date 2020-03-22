@@ -18,7 +18,7 @@
 // because it is the given input to be classified and can
 // therefore be disregarded in the calculations
 
-package seniorproject;
+package assistant;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -185,7 +185,7 @@ public class MultinomialNB {
         boolean confidence = false;
 
         for (double prob : probabilities) {
-            if (prob > .5) {
+            if (prob > .4) {
                 confidence = true;
                 break;
             }
