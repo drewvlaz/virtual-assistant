@@ -10,17 +10,14 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
  
-public class GUI extends Application
-{
-    public static void main(String[] args) 
-    {
+public class GUI extends Application {
+    public static void main(String[] args) {
         // Launch GUI
         Application.launch(args);
     }
      
     @Override
-    public void start(Stage stage) throws IOException 
-    {
+    public void start(Stage stage) throws IOException {
         // Create the FXMLLoader 
         FXMLLoader loader = new FXMLLoader();
         loader.setController(new Controller());

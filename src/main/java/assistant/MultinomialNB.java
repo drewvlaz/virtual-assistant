@@ -41,9 +41,6 @@ public class MultinomialNB {
 
     // Constructor
     public MultinomialNB() {}
-    public MultinomialNB(ArrayList<Category> trainingData) {
-        this.trainingData = trainingData;
-    }
     public MultinomialNB(String file) {
         readTrainingData(file);
     }
