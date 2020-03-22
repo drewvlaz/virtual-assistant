@@ -10,18 +10,18 @@ import javafx.scene.text.Text;
 
 public class Bubble extends HBox {
     // Instance variables
-    private Label content;
+    private Text content;
 
     // Constructors
     public Bubble() { super(); }
     public Bubble(String content) {
         super();
-        this.content = new Label(content);
+        this.content = new Text(content);
     }
 
     // Accessor
     public void setContent(String content) {
-        this.content = new Label(content);
+        this.content = new Text(content);
     }
 
     // Mutator
