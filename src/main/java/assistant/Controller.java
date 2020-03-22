@@ -16,32 +16,22 @@ import com.jfoenix.controls.JFXButton;
 import org.json.simple.parser.ParseException;
 
 public class Controller {
+    // Instance variables
     private MultinomialNB model;
 
     // FXML elements automatically loaded
-	@FXML
-    private TextField inputText;
-
-	// @FXML
-    // private TextArea outputText;
-
-	@FXML
-    private JFXButton sendBtn;
-
-	@FXML
-    private ScrollPane container;
-
-	@FXML
-    private VBox chatBox;
-    
-    @FXML
-    private ResourceBundle resources;
-
-    @FXML
-    private URL location;
+	@FXML private TextField inputText;
+	@FXML private JFXButton sendBtn;
+	@FXML private ScrollPane container;
+	@FXML private VBox chatBox;
 	
 	// Constructor
-	public Controller() {}
+	public Controller() {
+        // Create and train model
+        model = new MultinomialNB("./src/main/resources/data.json");
+        model.prepareData();
+        model.train();
+    }
 	
 	@FXML
     private void initialize() {}
@@ -57,12 +47,6 @@ public class Controller {
         // Initialize messaging bubbles
         Bubble userInput = new Bubble(inputText.getText());
         Bubble computerResponse = new Bubble();
-
-        // Create and train model
-        MultinomialNB model = new MultinomialNB();
-        model.readTrainingData("./src/main/resources/data.json");
-        model.prepareData();
-        model.train();
 
         // Classify user input
         String label = model.classify(inputText.getText());
@@ -94,6 +78,9 @@ public class Controller {
         // Display user input and computer response
         chatBox.getChildren().add(userInput);
         chatBox.getChildren().add(computerResponse);
+
+        // Auto scroll down 
+        container.vvalueProperty().bind(chatBox.heightProperty());
 
         // Clear user input from field for next response
         inputText.clear();

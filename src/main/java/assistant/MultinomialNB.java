@@ -34,15 +34,18 @@ import org.json.simple.parser.ParseException;
 
 public class MultinomialNB {
     // Instance variables
-    private ArrayList<Category> trainingData = new ArrayList<>();
-    private ArrayList<String> vocabulary = new ArrayList<>();
-    private ArrayList<Double> categoryProbabilities = new ArrayList<>();
+    private ArrayList<Category> trainingData = new ArrayList<Category>();
+    private ArrayList<String> vocabulary = new ArrayList<String>();
+    private ArrayList<Double> categoryProbabilities = new ArrayList<Double>();
     private int phraseCount = 0;
 
     // Constructor
     public MultinomialNB() {}
     public MultinomialNB(ArrayList<Category> trainingData) {
         this.trainingData = trainingData;
+    }
+    public MultinomialNB(String file) {
+        readTrainingData(file);
     }
 
     // Accessor methods
@@ -138,6 +141,9 @@ public class MultinomialNB {
     // Classify user input
     // @param sentence: sentence to classify to a category
     public String classify(String sentence) {
+        // Reset probabilities
+        categoryProbabilities = new ArrayList<Double>();
+
         // Split sentence into words
         String[] words = clean(sentence).split(" ");
 
