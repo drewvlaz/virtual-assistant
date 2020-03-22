@@ -6,6 +6,7 @@ import javafx.scene.layout.HBox;
 import javafx.geometry.Pos;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
+import javafx.scene.text.Text;
 
 public class Bubble extends HBox {
     // Instance variables
