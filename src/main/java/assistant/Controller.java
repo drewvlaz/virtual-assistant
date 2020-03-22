@@ -19,7 +19,6 @@ public class Controller {
     // Instance variables
     private MultinomialNB model;
 
-
     // FXML elements automatically loaded
     @FXML private TextField inputText;
     @FXML private JFXButton sendBtn;
