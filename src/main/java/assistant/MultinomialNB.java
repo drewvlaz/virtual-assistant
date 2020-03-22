@@ -12,7 +12,7 @@
 //          P(c|X)  =  P(x1|c)P(x2|c)...P(xn|c)P(c)
 //
 // Naive Bayes assumes each feature of set (X) contributes
-// equally and indepently to the class (c), hence the name
+// equally and indepently to the class (c), hence the name.
 // Because this is calculated for each class with a given
 // feature set, the denominator (P(B)) remains constant 
 // because it is the given input to be classified and can
@@ -41,8 +41,8 @@ public class MultinomialNB {
 
     // Constructor
     public MultinomialNB() {}
-    public MultinomialNB(String file) {
-        readTrainingData(file);
+    public MultinomialNB(String path) {
+        readTrainingData(path);
     }
 
     // Accessor methods
@@ -56,22 +56,6 @@ public class MultinomialNB {
 
     public ArrayList<Double> getCategoryProbabilities() {
         return categoryProbabilities;
-    }
-
-    // Add training data from csv file
-    // @param file: path to file of dataset
-    public void addTrainingData(String file) throws IOException {
-        BufferedReader csv = new BufferedReader(new FileReader(file));
-        String line;
-
-        while ((line = csv.readLine()) != null) {
-            String[] dataset = line.split(",");
-            String label = dataset[0];
-            String[] sentences = Arrays.copyOfRange(dataset, 1, dataset.length);
-            addTrainingData(label, sentences);
-        }
-        
-        csv.close();
     }
 
     // Reads in training data from json file and parses it
