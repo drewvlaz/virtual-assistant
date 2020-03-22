@@ -1,3 +1,5 @@
+// Controller for main GUI application
+
 package assistant;
 
 import java.net.URL;

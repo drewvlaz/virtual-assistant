@@ -30,14 +30,6 @@ jar {
         attributes 'Main-Class': 'assistant.GUI'
     }
 }
-sourceSets {
-    main {
-        resources {
-            srcDirs = ["src/main/java"]
-            includes = ["src/main/resources/style.css"]
-        }
-    }
-}
 
 publishing {
     publications {
