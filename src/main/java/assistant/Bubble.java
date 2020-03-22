@@ -6,8 +6,6 @@ import javafx.scene.layout.HBox;
 import javafx.geometry.Pos;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
-import javafx.scene.text.Font;
-import javafx.scene.text.FontWeight;
 
 public class Bubble extends HBox {
     // Instance variables
@@ -33,12 +31,12 @@ public class Bubble extends HBox {
     // Style the bubble appropriately
     public void configure(boolean user) {
         // Set bubble and text colors and text font
-        content.getStyleClass().add(user ? "user-chat-bubble" : "response-chat-bubble");
-        content.setFont(Font.font("HelveticaNeue", FontWeight.EXTRA_LIGHT, 14));
+        content.getStyleClass().add("chat-bubble");
+        content.getStyleClass().add(user ? "user" : "response");
 
         // Wrap text and adjust length if too long
-        content.setWrapText(true);
-        content.setMaxWidth(500 * 2 / 3.0);
+        // content.setMaxWidth(500 * 2 / 3.0);
+        // content.setWrapText(true);
 
         // Add message content to HBox bubble and adjust position
         this.getChildren().add(content);
