@@ -8,17 +8,15 @@ Actions currently in development are checking grades, exchanging greetings, tell
 searching the internet, and checking the weather.
 
 ## Demo
-![Simple Demo](/assets/Messaging_Demo.gif)
+![Simple Demo](/assets/Demo.gif)
 
 ## Building
 
-This project uses Maven to handle building. Be sure to have it installed on your system.
+This project uses Gradle to handle build configuration. Be sure to have it installed on your system.
 
-### Linux and Mac
+### Linux, Mac, and Windows
 ```
-mvn package
-java -cp target/virtual-assistant.jar seniorproject.GUI
+gradle shadowjar
+java -jar build/libs/virtual-assistant-1.0-all.jar
 ```
 
-### Windows
-Good luck
