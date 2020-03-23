@@ -14,14 +14,20 @@ import javafx.scene.paint.Paint;
 public class Bubble extends HBox {
     // Instance variables
     private Text content;
-    private Rectangle background = new Rectangle();
-    private StackPane bubble = new StackPane();
+    private Rectangle background;
+    private StackPane bubble;
 
     // Constructors
-    public Bubble() { super(); }
+    public Bubble() {
+        super(); 
+        this.background = new Rectangle();
+        this.bubble = new StackPane();
+    }
     public Bubble(String content) {
         super();
         this.content = new Text(content);
+        this.background = new Rectangle();
+        this.bubble = new StackPane();
     }
 
     // Accessor
