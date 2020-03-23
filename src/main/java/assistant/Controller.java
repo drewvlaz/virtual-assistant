@@ -45,8 +45,8 @@ public class Controller {
         }
 
         // Initialize messaging bubbles
-        Bubble userInput = new Bubble(inputText.getText());
-        Bubble computerResponse = new Bubble();
+        BubbleShapes userInput = new BubbleShapes(inputText.getText());
+        BubbleShapes computerResponse = new BubbleShapes();
 
         // Classify user input
         String label = model.classify(inputText.getText());
