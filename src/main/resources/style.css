@@ -1,3 +1,31 @@
+.chat-bubble-background {
+    -fx-background-radius: 20px;
+    -fx-padding: 8;
+    -fx-font-family: Arial, Helvetica, sans-serif;
+    -fx-font-size: 14px;
+
+    -fx-arc-height: 28;
+    -fx-arc-width: 28;
+}
+.chat-bubble-background.user {
+    -fx-fill: #4089ff;
+}
+
+.chat-bubble-background.response {
+    -fx-fill: #e1e2e3;
+}
+
+.chat-bubble-text {
+    -fx-font-family: Arial, Helvetica, sans-serif;
+    -fx-font-size: 14px;
+}
+.chat-bubble-text.user {
+    -fx-fill: #ffffff;
+}
+.chat-bubble-text.response {
+    -fx-fill: #000000;
+}
+
 .chat-bubble {
     -fx-background-radius: 20px;
     -fx-padding: 8;

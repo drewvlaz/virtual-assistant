@@ -3,26 +3,27 @@
 package assistant;
 
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.StackPane;
 import javafx.geometry.Pos;
 import javafx.geometry.Insets;
 import javafx.scene.control.Label;
 import javafx.scene.text.Text;
-import javafx.scene.shape.Rectangle;
 
 public class Bubble extends HBox {
     // Instance variables
-    private Text content;
+    private Label content;
+    private StackPane bubble = new StackPane();
 
     // Constructors
     public Bubble() { super(); }
     public Bubble(String content) {
         super();
-        this.content = new Text(content);
+        this.content = new Label(content);
     }
 
     // Accessor
     public void setContent(String content) {
-        this.content = new Text(content);
+        this.content = new Label(content);
     }
 
     // Mutator
@@ -40,8 +41,10 @@ public class Bubble extends HBox {
         // content.setMaxWidth(500 * 2 / 3.0);
         // content.setWrapText(true);
 
+        bubble.getChildren().addAll(content);
+
         // Add message content to HBox bubble and adjust position
-        this.getChildren().add(content);
+        this.getChildren().add(bubble);
         this.setAlignment(user ? Pos.BASELINE_RIGHT : Pos.BASELINE_LEFT);
         this.setPadding(new Insets(10, 10, 10, 10));;
     }
