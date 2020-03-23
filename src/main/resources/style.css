@@ -1,9 +1,4 @@
 .chat-bubble-background {
-    -fx-background-radius: 20px;
-    -fx-padding: 8;
-    -fx-font-family: Arial, Helvetica, sans-serif;
-    -fx-font-size: 14px;
-
     -fx-arc-height: 28;
     -fx-arc-width: 28;
 }
@@ -15,17 +10,7 @@
     -fx-fill: #e1e2e3;
 }
 
-.chat-bubble-text {
-    -fx-font-family: Arial, Helvetica, sans-serif;
-    -fx-font-size: 14px;
-}
-.chat-bubble-text.user {
-    -fx-fill: #ffffff;
-}
-.chat-bubble-text.response {
-    -fx-fill: #000000;
-}
-
+/* Legacy, used for styling Label objects into bubble */
 .chat-bubble {
     -fx-background-radius: 20px;
     -fx-padding: 8;

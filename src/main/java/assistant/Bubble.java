@@ -4,26 +4,29 @@ package assistant;
 
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
+import javafx.scene.shape.Rectangle;
 import javafx.geometry.Pos;
 import javafx.geometry.Insets;
-import javafx.scene.control.Label;
 import javafx.scene.text.Text;
+import javafx.scene.text.Font;
+import javafx.scene.paint.Paint;
 
 public class Bubble extends HBox {
     // Instance variables
-    private Label content;
+    private Text content;
+    private Rectangle background = new Rectangle();
     private StackPane bubble = new StackPane();
 
     // Constructors
     public Bubble() { super(); }
     public Bubble(String content) {
         super();
-        this.content = new Label(content);
+        this.content = new Text(content);
     }
 
     // Accessor
     public void setContent(String content) {
-        this.content = new Label(content);
+        this.content = new Text(content);
     }
 
     // Mutator
@@ -33,17 +36,25 @@ public class Bubble extends HBox {
 
     // Style the bubble appropriately
     public void configure(boolean user) {
-        // Set bubble and text colors and text font
-        content.getStyleClass().add("chat-bubble");
-        content.getStyleClass().add(user ? "user" : "response");
+        // Set colors and text font, css doesn't work well for this
+        content.setFont(new Font("Arial", 14));
+        content.setFill(Paint.valueOf(user ? "#ffffff" : "#000000"));
+
+        // Set bubble background shape and color
+        background.getStyleClass().add("chat-bubble-background");
+        background.getStyleClass().add(user ? "user" : "response");
 
         // Wrap text and adjust length if too long
-        // content.setMaxWidth(500 * 2 / 3.0);
-        // content.setWrapText(true);
+        content.setWrappingWidth(Math.min(content.getBoundsInLocal().getWidth(), (500 * 2 / 3.0)));
 
-        bubble.getChildren().addAll(content);
+        // Set bubble background width and add padding
+        background.setWidth(content.getBoundsInLocal().getWidth() + 14);
+        background.setHeight(content.getBoundsInLocal().getHeight() + 14);
 
-        // Add message content to HBox bubble and adjust position
+        // Combine content and background into bubble
+        bubble.getChildren().addAll(background, content);
+
+        // Add message content to HBox bubble and adjust positioning
         this.getChildren().add(bubble);
         this.setAlignment(user ? Pos.BASELINE_RIGHT : Pos.BASELINE_LEFT);
         this.setPadding(new Insets(10, 10, 10, 10));;

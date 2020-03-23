@@ -40,16 +40,17 @@ public class Controller {
     @FXML
     private void respond() throws IOException, ParseException {
         // Ensure user input text
-        if (inputText.getText().equals("")) {
+        if (inputText.getText().trim().equals("")) {
+            inputText.clear();
             return;
         }
 
         // Initialize messaging bubbles
-        BubbleShapes userInput = new BubbleShapes(inputText.getText());
-        BubbleShapes computerResponse = new BubbleShapes();
+        Bubble userInput = new Bubble(inputText.getText().trim());
+        Bubble computerResponse = new Bubble();
 
         // Classify user input
-        String label = model.classify(inputText.getText());
+        String label = model.classify(inputText.getText().trim());
         System.out.println(model.getFormattedProbabilities());
 
         // Execute user's request
