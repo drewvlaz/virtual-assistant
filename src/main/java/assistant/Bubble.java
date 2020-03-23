@@ -53,7 +53,7 @@ public class Bubble extends HBox {
         // Wrap text and adjust length if too long
         content.setWrappingWidth(Math.min(content.getBoundsInLocal().getWidth(), (500 * 2 / 3.0)));
 
-        // Set bubble background width and add padding
+        // Set bubble background width/height and add padding
         background.setWidth(content.getBoundsInLocal().getWidth() + 14);
         background.setHeight(content.getBoundsInLocal().getHeight() + 14);
 
