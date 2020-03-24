@@ -14,14 +14,20 @@ import javafx.scene.paint.Paint;
 public class Bubble extends HBox {
     // Instance variables
     private Text content;
-    private Rectangle background = new Rectangle();
-    private StackPane bubble = new StackPane();
+    private Rectangle background;
+    private StackPane bubble;
 
     // Constructors
-    public Bubble() { super(); }
+    public Bubble() {
+        super(); 
+        this.background = new Rectangle();
+        this.bubble = new StackPane();
+    }
     public Bubble(String content) {
         super();
         this.content = new Text(content);
+        this.background = new Rectangle();
+        this.bubble = new StackPane();
     }
 
     // Accessor
@@ -47,7 +53,7 @@ public class Bubble extends HBox {
         // Wrap text and adjust length if too long
         content.setWrappingWidth(Math.min(content.getBoundsInLocal().getWidth(), (500 * 2 / 3.0)));
 
-        // Set bubble background width and add padding
+        // Set bubble background width/height and add padding
         background.setWidth(content.getBoundsInLocal().getWidth() + 14);
         background.setHeight(content.getBoundsInLocal().getHeight() + 14);
 

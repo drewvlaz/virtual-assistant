@@ -2,8 +2,6 @@
 
 package assistant;
 
-import java.net.URL;
-import java.util.ResourceBundle;
 import java.io.IOException;
 
 import javafx.fxml.FXML;
@@ -33,8 +31,12 @@ public class Controller {
         model.train();
     }
 
+    // Initialize is called after all FXML elements are loaded in
     @FXML
-    private void initialize() {}
+    private void initialize() {
+        // Enable auto scroll down when user sends new input
+        container.vvalueProperty().bind(chatBox.heightProperty());
+    }
     
     // Responds to user input and updates GUI accordingly
     @FXML
@@ -79,9 +81,6 @@ public class Controller {
         // Display user input and computer response
         chatBox.getChildren().add(userInput);
         chatBox.getChildren().add(computerResponse);
-
-        // Auto scroll down 
-        container.vvalueProperty().bind(chatBox.heightProperty());
 
         // Clear user input from field for next response
         inputText.clear();

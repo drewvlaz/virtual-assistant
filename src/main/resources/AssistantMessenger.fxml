@@ -114,12 +114,12 @@
                <children>
                   <Pane prefHeight="80.0" prefWidth="528.0">
                      <children>
-                        <JFXButton fx:id="sendBtn" layoutX="439.0" layoutY="19.0" onAction="#respond" style="-fx-background-color: #0c2847;" text="Send" textFill="WHITE">
+                        <JFXButton id=".input-box" fx:id="sendBtn" layoutX="439.0" layoutY="19.0" onAction="#respond" style="-fx-background-color: #0c2847;" stylesheets="@style.css" text="Send" textFill="WHITE">
                            <font>
                               <Font name="Roboto Condensed Regular" size="20.0" />
                            </font>
                         </JFXButton>
-                        <TextField fx:id="inputText" layoutX="24.0" layoutY="19.0" onAction="#respond" prefHeight="42.0" prefWidth="387.0" promptText="How can I help you?">
+                        <TextField id=".input-box" fx:id="inputText" layoutX="24.0" layoutY="19.0" onAction="#respond" prefHeight="42.0" prefWidth="387.0" promptText="How can I help you?" stylesheets="@style.css">
                            <font>
                               <Font name="Roboto Condensed Regular" size="20.0" />
                            </font>

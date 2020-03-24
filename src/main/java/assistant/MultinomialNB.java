@@ -21,9 +21,7 @@
 package assistant;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.DecimalFormat;
@@ -78,14 +76,6 @@ public class MultinomialNB {
         catch (ParseException e) {
             e.printStackTrace();
         }
-    }
-
-    // Parse json object
-    // @param object
-    // @return object parsed as array
-    private static String[] parseJson(Object obj) {
-        String temp = "" + obj;
-        return temp.split(",");
     }
 
     // Add training data
@@ -238,5 +228,14 @@ public class MultinomialNB {
         }
 
         return input;
-	}
+    }
+
+    // Parse json object
+    // @param object
+    // @return object parsed as array
+    private static String[] parseJson(Object obj) {
+        String temp = "" + obj;
+        return temp.split(",");
+    }
+
 }
