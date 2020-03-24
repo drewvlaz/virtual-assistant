@@ -78,14 +78,6 @@ public class MultinomialNB {
         }
     }
 
-    // Parse json object
-    // @param object
-    // @return object parsed as array
-    private static String[] parseJson(Object obj) {
-        String temp = "" + obj;
-        return temp.split(",");
-    }
-
     // Add training data
     // @param label: label of data category
     // @param sentences: training data sentence examples
@@ -236,5 +228,14 @@ public class MultinomialNB {
         }
 
         return input;
-	}
+    }
+
+    // Parse json object
+    // @param object
+    // @return object parsed as array
+    private static String[] parseJson(Object obj) {
+        String temp = "" + obj;
+        return temp.split(",");
+    }
+
 }

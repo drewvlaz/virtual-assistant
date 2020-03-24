@@ -10,6 +10,10 @@
     -fx-fill: #e1e2e3;
 }
 
+.input-box {
+    -fx-padding: 8;
+}
+
 /* Legacy, used for styling Label objects into bubble */
 .chat-bubble {
     -fx-background-radius: 20px;
