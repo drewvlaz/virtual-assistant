@@ -1,0 +1,39 @@
+{
+    "labels": [
+        "yes",
+        "no"
+    ],
+    "yes" : [ 
+        "yes",
+        "go ahead",
+        "yeah that is fine",
+        "sounds good to me",
+        "okay",
+        "sure",
+        "ok sure",
+        "alright that is fine",
+        "when will it stop raining",
+        "yep",
+        "yup",
+        "yeah definetly",
+        "yes please",
+        "of course"
+    ],
+    "no" : [
+        "no nope",
+        "no thanks",
+        "not this time",
+        "i would rather you not",
+        "sorry no",
+        "no way",
+        "nah nah",
+        "certainly not",
+        "not this time",
+        "i think i will pass",
+        "maybe another time",
+        "i am not interested",
+        "thanks but no",
+        "nope",
+        "no way"
+    ]
+}

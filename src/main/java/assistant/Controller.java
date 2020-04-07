@@ -3,12 +3,15 @@
 package assistant;
 
 import java.io.IOException;
+import java.util.Scanner;
+import java.util.ArrayList;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
+import com.gargoylesoftware.htmlunit.javascript.host.fetch.Response;
 import com.jfoenix.controls.JFXButton;
 
 import org.json.simple.parser.ParseException;
@@ -16,6 +19,7 @@ import org.json.simple.parser.ParseException;
 public class Controller {
     // Instance variables
     private MultinomialNB model;
+    private boolean continuedConversation;
 
     // FXML elements automatically loaded
     @FXML private TextField inputText;
@@ -38,18 +42,37 @@ public class Controller {
         container.vvalueProperty().bind(chatBox.heightProperty());
     }
     
-    // Responds to user input and updates GUI accordingly
+    // Sends user input to virtual assistant and displays it
     @FXML
-    private void respond() throws IOException, ParseException {
+    private void send() throws IOException, ParseException {
         // Ensure user input text
         if (inputText.getText().trim().equals("")) {
             inputText.clear();
             return;
         }
 
-        // Initialize messaging bubbles
+        // Display user input in messaging bubble
         Bubble userInput = new Bubble(inputText.getText().trim());
-        Bubble computerResponse = new Bubble();
+        userInput.configure(true);
+        chatBox.getChildren().add(userInput);
+
+        // Get response from irtual assistant
+        respond();
+
+        // Clear user input from field for next response
+        inputText.clear();
+    }
+
+    // Classifies user input and responds accordingly
+    @FXML
+    private void respond() throws IOException, ParseException {
+        if (continuedConversation) {
+            followUp();
+            continuedConversation = false;
+            return;
+        }
+        // Initialize messaging bubble
+        ArrayList<Bubble> computerResponses = new ArrayList<Bubble>();
 
         // Classify user input
         String label = model.classify(inputText.getText().trim());
@@ -58,31 +81,62 @@ public class Controller {
         // Execute user's request
         switch (label) {
             case "jokes":
-                computerResponse.setContent(Actions.getJoke());
+                computerResponses.add(new Bubble(Actions.getJoke()));
                 break;
             case "grades":
-                computerResponse.setContent(Actions.getGrades());
+                computerResponses.add(new Bubble(Actions.getGrades()));
                 break;
             case "weather":
-                computerResponse.setContent(Actions.getWeatherSummary());
+                computerResponses.add(new Bubble(Actions.getWeatherSummary()));
                 break;
             case "greeting":
-                computerResponse.setContent(Actions.getGreeting());
+                computerResponses.add(new Bubble(Actions.getGreeting()));
                 break;
-            default:
-                computerResponse.setContent("Hmm, I don't understand what you're asking");
+            case "unknown":
+                computerResponses.add(new Bubble("Hmm, I don't understand what you're asking"));
+                computerResponses.add(new Bubble("Would you like me to look it up?"));
+                continuedConversation = true;
                 break;
         }
 
-        // Format bubbles
-        userInput.configure(true);
+        // Display response in messaging bubble
+        for (int i = 0; i < computerResponses.size(); i++) {
+            // Configure
+            computerResponses.get(i).configure(false);
+            if (continuedConversation) {
+                computerResponses.get(i).setAdjacent(i == 0, i == computerResponses.size() - 1);
+            }
+            // Add to display
+            chatBox.getChildren().add(computerResponses.get(i));
+        }
+    }
+    
+    public void followUp() {
+        Scanner sc = new Scanner(inputText.getText());
+
+        // Create and train model
+        MultinomialNB yesOrNo = new MultinomialNB("./src/main/resources/yesno.json");
+        yesOrNo.prepareData();
+        yesOrNo.train();
+
+        // Initialize messaging bubbles
+        Bubble computerResponse = new Bubble();
+
+        // Classify user input
+        String label = yesOrNo.classify(inputText.getText().trim());
+        System.out.println(model.getFormattedProbabilities());
+
+        switch (label) {
+            case "yes":
+                computerResponse.setContent("Here you go:");
+                break;
+            case "no":
+                computerResponse.setContent("Okay");
+                break;
+        }
+
+        // Display response in messaging bubble
         computerResponse.configure(false);
-
-        // Display user input and computer response
-        chatBox.getChildren().add(userInput);
         chatBox.getChildren().add(computerResponse);
-
-        // Clear user input from field for next response
-        inputText.clear();
-	}
+    }
 }
