@@ -16,8 +16,8 @@ Create a keys.json file in the following format to gain weather and grades retri
 ```
 {
     "weather": "Dark Sky API Key",
-    "grade_username": "username",
-    "grade_password": "password"
+    "grade_username": "your username",
+    "grade_password": "your password"
 }
 ```
 
