@@ -10,20 +10,20 @@ searching the internet, and checking the weather.
 ## Demo
 ![Simple Demo](/assets/Messaging_Demo.webm)
 
-## Building
-
-This project uses Gradle to handle build configuration. Be sure to have it installed on your system.
+## Files
 There are also some files that need to be created for full functionality.
-
-### Files
 Create a keys.json file in the following format to gain weather and grades retrieval functionality.
 ```
 {
-    "weather": "Dark Sky API Keyj",
+    "weather": "Dark Sky API Key",
     "grade_username": "username",
     "grade_password": "password"
 }
 ```
+
+## Building
+
+This project uses Gradle to handle build configuration. Be sure to have it installed on your system.
 
 ### Linux, Mac, and Windows
 ```
