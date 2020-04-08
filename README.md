@@ -15,7 +15,7 @@ There are also some files that need to be created for full functionality.
 Create a keys.json file in the following format to gain weather and grades retrieval functionality.
 ```
 {
-    "weather": "Dark Sky API Keyj",
+    "weather": "Dark Sky API Key",
     "grade_username": "username",
     "grade_password": "password"
 }
