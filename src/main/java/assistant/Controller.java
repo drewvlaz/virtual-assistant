@@ -111,7 +111,8 @@ public class Controller {
         }
     }
     
-    public void followUp() throws IOException, ParseException {
+    // Follows up and asks if user wants to continue
+    private void followUp() throws IOException, ParseException {
         // Reset flag
         String category = continuedConversationCategory;
         continuedConversationCategory = null;
