@@ -52,6 +52,7 @@ public class Controller {
         }
 
         // Display user input in messaging bubble
+        // TODO: AnimationTimer for displaying instantly?
         Bubble userInput = new Bubble(inputText.getText().trim());
         userInput.configure(true);
         chatBox.getChildren().add(userInput);
@@ -102,7 +103,7 @@ public class Controller {
         for (int i = 0; i < computerResponses.size(); i++) {
             // Configure
             computerResponses.get(i).configure(false);
-            if (continuedConversationCategory != null) {
+            if (computerResponses.size() > 1) {
                 computerResponses.get(i).setAdjacent(i == 0, i == computerResponses.size() - 1);
             }
             // Add to display
@@ -126,6 +127,7 @@ public class Controller {
         switch (affirmation) {
             case "yes":
                 if (category == "unknown") {
+                    // TODO: search internet
                     Bubble computerResponse = new Bubble("Here you go:");
                     computerResponse.configure(false);
                     chatBox.getChildren().add(computerResponse);
