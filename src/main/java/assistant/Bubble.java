@@ -73,6 +73,13 @@ public class Bubble extends HBox {
     // Adjusts the padding so that the bubble is adjacent
     public void setAdjacent(boolean first, boolean last) {
         // Insets(top, right, bottom, left)
-        this.setPadding(new Insets(first ? 10 : 0, 10, last ? 10 : 0, 10));;
+        this.setPadding(
+            new Insets(
+                first ? 10 : 0,
+                10,
+                last ? 10 : 0,
+                10
+            )
+        );
     }
 }
