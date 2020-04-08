@@ -8,7 +8,7 @@ Actions currently in development are checking grades, exchanging greetings, tell
 searching the internet, and checking the weather.
 
 ## Demo
-![Simple Demo](/assets/Demo.new)
+![Simple Demo](/assets/Demo.gif)
 
 ## Files
 There are also some files that need to be created for full functionality.
