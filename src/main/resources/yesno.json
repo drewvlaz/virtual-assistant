@@ -4,7 +4,7 @@
         "no"
     ],
     "yes" : [ 
-        "yes",
+        "yes yes yes",
         "go ahead",
         "yeah that is fine",
         "sounds good to me",
@@ -17,9 +17,11 @@
         "yup",
         "yeah definetly",
         "yes please",
+        "sure why not",
         "of course"
     ],
     "no" : [
+        "no no no",
         "no nope",
         "no thanks",
         "not this time",
@@ -29,11 +31,11 @@
         "nah nah",
         "certainly not",
         "not this time",
-        "i think i will pass",
+        "i think ill pass",
         "maybe another time",
         "i am not interested",
         "thanks but no",
-        "nope",
+        "nope im good",
         "no way"
     ]
 }
