@@ -32,7 +32,7 @@ import org.json.simple.parser.ParseException;
 
 public class MultinomialNB {
     // Instance variables
-    private final double CONFIDENCE_THRESHOLD = .5;
+    private double confidenceThreshold;
     private ArrayList<Category> trainingData = new ArrayList<Category>();
     private ArrayList<String> vocabulary = new ArrayList<String>();
     private ArrayList<Double> categoryProbabilities = new ArrayList<Double>();
@@ -42,6 +42,8 @@ public class MultinomialNB {
     public MultinomialNB() {}
     public MultinomialNB(String path) {
         readTrainingData(path);
+        confidenceThreshold = 1.0 / trainingData.size() + .2;
+        System.out.println(confidenceThreshold);
     }
 
     // Accessor methods
@@ -177,7 +179,7 @@ public class MultinomialNB {
         boolean confident = false;
 
         for (double prob : probabilities) {
-            if (prob > CONFIDENCE_THRESHOLD) {
+            if (prob > confidenceThreshold) {
                 confident = true;
                 break;
             }
