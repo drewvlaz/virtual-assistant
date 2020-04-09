@@ -2,10 +2,10 @@ package assistant;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
-import java.io.IOException;
-import java.net.UnknownHostException;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Calendar;
@@ -60,6 +60,14 @@ public class Actions {
         ArrayList<String> greetings = readFile("./src/main/resources/greetings.txt");
 
         return greetings.get((int)(Math.random() * greetings.size()));
+    }
+
+    // Get a greeting
+    // @return a random greeting from file
+    public static String getComeback() throws IOException {
+        ArrayList<String> comebacks = readFile("./src/main/resources/comebacks.txt");
+
+        return comebacks.get((int)(Math.random() * comebacks.size()));
     }
 
     // Get a weather summary
@@ -146,6 +154,62 @@ public class Actions {
             }
 
             return gradeSummary.trim();
+        }
+    }
+
+    // Looks up user input on wikipedia
+    // @param thing to look up
+    // @return String of summary
+    public static String lookUp(String input) throws IOException, ParseException {
+        try {
+            // Inintialize web client options and connect to url
+            String url = "https://www.wikipedia.org/";
+            WebClient client = new WebClient();
+            client.getOptions().setJavaScriptEnabled(true);
+            client.getOptions().setCssEnabled(false);
+            client.getOptions().setUseInsecureSSL(true);
+            HtmlPage page = client.getPage(url);
+
+            // Locate search form
+            HtmlForm searchForm = page.getForms().get(0);
+            HtmlTextInput search = searchForm.getInputByName("search");
+            // HtmlButton searchButton = searchForm.getFirstByXPath("submit");
+
+            // Enter search term and search
+            search.type(input);
+            // searchButton.click();
+
+            // Refresh page and get grades
+            // page = client.getPage("");
+            BufferedWriter bw = new BufferedWriter(new FileWriter("./src/main/resources/wiki.html"));
+            bw.write(page.asXml());
+            bw.close();
+            Document doc = Jsoup.parse(page.asXml());
+            // Elements elems = doc.body().getElementsByTag("span");
+            // List<String> text = elems.eachText();
+            // // String gradeSummary = Calendar.getInstance().getTime() + "\n";
+            // String gradeSummary = "";
+            // client.close();
+
+            // // Parse the subject name and grade for each class
+            // for (int i = 0; i < text.size() - 3; i++) {
+            //     // Grade element is always located 3 elements after the name
+            //     String subject = text.get(i);
+            //     String grade = text.get(i + 3);
+            //     if (subject.contains("[") && grade.contains("%")) {
+            //         gradeSummary += subject.substring(5) + ": " + grade + "\n";
+            //     }
+            // }
+
+            // // Remove extra white space 
+            // gradeSummary = gradeSummary.trim();
+
+            // return gradeSummary.substring(gradeSummary.indexOf("\n") + 1);
+            return "Looking up...";
+        }
+        catch (UnknownHostException e) {
+            // Can't access internet
+            return "Hmm... something went wrong. Please try again later.";
         }
     }
 

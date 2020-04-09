@@ -59,6 +59,7 @@ public class Controller {
 
         // Get response from virtual assistant
         respond(model.classify(inputText.getText().trim()));
+        System.out.println(model.getFormattedProbabilities());
 
         // Clear user input from field for next response
         inputText.clear();
@@ -91,6 +92,9 @@ public class Controller {
                 break;
             case "greeting":
                 computerResponses.add(new Bubble(Actions.getGreeting()));
+                break;
+            case "insult":
+                computerResponses.add(new Bubble(Actions.getComeback()));
                 break;
             case "unknown":
                 computerResponses.add(new Bubble("Hmm, I don't understand what you're asking"));
@@ -130,6 +134,7 @@ public class Controller {
                 if (category == "unknown") {
                     // TODO: search internet
                     Bubble computerResponse = new Bubble("Here you go:");
+                    Actions.lookUp(category);
                     computerResponse.configure(false);
                     chatBox.getChildren().add(computerResponse);
                 }
