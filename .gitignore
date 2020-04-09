@@ -17,3 +17,4 @@ gradlew.bat
 src/main/resources/keys.json
 src/main/resources/weather.json
 src/main/resources/grades.txt
+src/main/resources/*.html
