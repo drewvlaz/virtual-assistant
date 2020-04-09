@@ -128,6 +128,7 @@ public class Controller {
 
         // Classify user input
         String affirmation = yesOrNo.classify(inputText.getText().trim());
+        System.out.println(yesOrNo.getFormattedProbabilities());
 
         switch (affirmation) {
             case "yes":

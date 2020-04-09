@@ -42,7 +42,7 @@ public class MultinomialNB {
     public MultinomialNB() {}
     public MultinomialNB(String path) {
         readTrainingData(path);
-        confidenceThreshold = 1.0 / trainingData.size() + .2;
+        confidenceThreshold = .4;
         System.out.println(confidenceThreshold);
     }
 
