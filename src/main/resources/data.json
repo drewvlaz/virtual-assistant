@@ -3,7 +3,8 @@
         "weather",
         "grades",
         "jokes",
-        "greeting"
+        "greeting",
+        "insult"
     ],
     "weather" : [ 
         "how is the weather",
@@ -15,6 +16,11 @@
         "is it thundering and lightening",
         "when will it stop raining",
         "weather outside sunny rainy",
+        "is the weather outside nice or bad",
+        "is it a good day to go outside and play",
+        "how is the weather on this fine day",
+        "hows the weather",
+        "show me the weather",
         "can you tell me the weather",
         "raining weather hot cold temperature",
         "cloudy inside today outside tomorrow week"
@@ -34,6 +40,7 @@
         "show me my grades",
         "i want to see my grades now",
         "can i see my grades",
+        "i need to see my grades",
         "has my teacher updated my grades",
         "how did i do on the homework assignment"
     ],
@@ -64,13 +71,31 @@
         "tell me a joke",
         "humor me",
         "show some sense of humor",
+        "tell me a joke please",
+        "humor me i need to hear something funny",
+        "show some sense of humor",
+        "a joke would be nice",
+        "jokes jokes jokes",
         "i need to here a joke right about now"
+    ],
+    "insult": [
+        "fuck you",
+        "screw you you suck",
+        "i hope you die",
+        "go to hell",
+        "motherfucker",
+        "go die in a hole",
+        "dumb ass bot",
+        "you are a piece of shit",
+        "what the fuck is wrong with you",
+        "you suck"
     ],
     "greeting" : [
         "hello how are you",
         "hello",
         "nice to meet you",
         "hey how is it going",
+        "its good to see you",
         "hows it going",
         "hows it goin bro",
         "whats up",
