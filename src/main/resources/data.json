@@ -6,7 +6,7 @@
         "greeting",
         "insult"
     ],
-    "weather" : [ 
+    "weather": [
         "how is the weather",
         "is it rainy outside",
         "tell me is it sunnny outside",
@@ -25,7 +25,7 @@
         "raining weather hot cold temperature",
         "cloudy inside today outside tomorrow week"
     ],
-    "grades" : [
+    "grades": [
         "what are my grades like",
         "how did i do on that test",
         "what is my english grade like",
@@ -44,7 +44,7 @@
         "has my teacher updated my grades",
         "how did i do on the homework assignment"
     ],
-    "search" : [
+    "search": [
         "can you look up",
         "google this please",
         "what is the definition of",
@@ -61,7 +61,7 @@
         "i need to ask a question",
         "look up online using the internet"
     ],
-    "jokes" : [
+    "jokes": [
         "can you tell me a joke",
         "give me something funny",
         "i want to hear a joke",
@@ -90,7 +90,7 @@
         "what the fuck is wrong with you",
         "you suck"
     ],
-    "greeting" : [
+    "greeting": [
         "hello how are you",
         "hello",
         "nice to meet you",
