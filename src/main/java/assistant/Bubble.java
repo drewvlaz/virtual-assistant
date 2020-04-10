@@ -7,8 +7,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.shape.Rectangle;
 import javafx.geometry.Pos;
 
-import javax.swing.text.AttributeSet.FontAttribute;
-
 import javafx.geometry.Insets;
 import javafx.scene.text.Text;
 import javafx.scene.text.Font;
@@ -42,6 +40,11 @@ public class Bubble extends HBox {
     // Mutator
     public String getContent() {
         return content.getText();
+    }
+
+    // Add content to the bubble on a new line
+    public void addContent(String content) {
+        this.content = new Text(this.content.getText() + "\n" + content);
     }
 
     // Style the bubble appropriately
