@@ -93,8 +93,8 @@ public class Controller {
             case "greeting":
                 computerResponses.add(new Bubble(Actions.getGreeting()));
                 break;
-            case "insult":
-                computerResponses.add(new Bubble(Actions.getComeback()));
+            case "thanks":
+                computerResponses.add(new Bubble(Actions.getPoliteResponse()));
                 break;
             case "unknown":
                 computerResponses.add(new Bubble("Hmm, I don't understand what you're asking"));
@@ -122,7 +122,7 @@ public class Controller {
         continuedConversationCategory = null;
 
         // Create and train model
-        MultinomialNB yesOrNo = new MultinomialNB("./src/main/resources/yesno.json");
+        MultinomialNB yesOrNo = new MultinomialNB("./src/main/resources/yes_or_no.json");
         yesOrNo.prepareData();
         yesOrNo.train();
 
