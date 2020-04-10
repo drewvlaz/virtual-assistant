@@ -27,7 +27,6 @@ import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 
 
 public class Actions {
-
     // Read in a file
     // @param file: String of file location
     // @return text: Array of text in file
@@ -64,10 +63,10 @@ public class Actions {
 
     // Get a greeting
     // @return a random greeting from file
-    public static String getComeback() throws IOException {
-        ArrayList<String> comebacks = readFile("./src/main/resources/comebacks.txt");
+    public static String getPoliteResponse() throws IOException {
+        ArrayList<String> politeResponse = readFile("./src/main/resources/polite_responses.txt");
 
-        return comebacks.get((int)(Math.random() * comebacks.size()));
+        return politeResponse.get((int)(Math.random() * politeResponse.size()));
     }
 
     // Get a weather summary
