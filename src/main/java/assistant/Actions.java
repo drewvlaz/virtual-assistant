@@ -27,7 +27,6 @@ import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 
 
 public class Actions {
-
     // Read in a file
     // @param file: String of file location
     // @return text: Array of text in file

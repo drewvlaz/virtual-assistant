@@ -135,7 +135,7 @@ public class Controller {
                 if (category == "unknown") {
                     // TODO: search internet
                     Bubble computerResponse = new Bubble("Here you go:");
-                    Actions.lookUp(category);
+                    computerResponse.addContent(Actions.lookUp(category));
                     computerResponse.configure(false);
                     chatBox.getChildren().add(computerResponse);
                 }
