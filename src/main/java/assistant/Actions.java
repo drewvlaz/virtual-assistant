@@ -183,7 +183,7 @@ public class Actions {
 
             // Create webriver
             WebDriver driver = new ChromeDriver();
-            // driver.manage().window().setPosition(new Point(100,200));
+            driver.manage().window().setPosition(new Point(0,0));
             // driver.manage().window().setSize(new Dimension(550,680));
 
             // Navigate to google and search term
@@ -218,6 +218,7 @@ public class Actions {
 
             // Create webriver
             WebDriver driver = new ChromeDriver();
+            driver.manage().window().setPosition(new Point(0,0));
 
             // Navigate to spotify
             // driver.get("https://www.spotify.com");
