@@ -133,11 +133,14 @@ public class Controller {
         switch (affirmation) {
             case "yes":
                 if (category == "unknown") {
-                    // TODO: search internet
-                    Bubble computerResponse = new Bubble("Here you go:");
-                    computerResponse.addContent(Actions.lookUp(category));
+                    // Confirm
+                    Bubble computerResponse = new Bubble("Sure");
                     computerResponse.configure(false);
                     chatBox.getChildren().add(computerResponse);
+
+                    // Get text that was not understood and look it up
+                    String text = ((Bubble)chatBox.getChildren().get(chatBox.getChildren().size() - 5)).getContent();
+                    Actions.lookUp(text);
                 }
                 else {
                     respond(category);

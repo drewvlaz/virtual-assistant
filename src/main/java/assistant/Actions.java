@@ -22,9 +22,16 @@ import org.jsoup.select.Elements;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
+import com.gargoylesoftware.htmlunit.html.HtmlButton;
 import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Point;
+import org.openqa.selenium.Dimension;
+import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Actions {
     // Read in a file
@@ -156,57 +163,38 @@ public class Actions {
         }
     }
 
-    // Looks up user input on wikipedia
+    // Looks up user input on google
     // @param thing to look up
     // @return String of summary
     public static String lookUp(String input) throws IOException, ParseException {
         try {
-            // Inintialize web client options and connect to url
-            String url = "https://www.wikipedia.org/";
-            WebClient client = new WebClient();
-            client.getOptions().setJavaScriptEnabled(true);
-            client.getOptions().setCssEnabled(false);
-            client.getOptions().setUseInsecureSSL(true);
-            HtmlPage page = client.getPage(url);
+            // Set appropriate path to webdriver
+            String driverPath = "./src/main/resources/webdrivers/";
+            if (isWindows()) {
+                driverPath += "chromedriver.exe";
+            }
+            else if (isLinux()) {
+                driverPath += "chromedriver_linux";
+            }
+            else if (isMac()) {
+                driverPath += "chromedriver_mac";
+            }
+            System.setProperty("webdriver.chrome.driver", driverPath);
 
-            // Locate search form
-            HtmlForm searchForm = page.getForms().get(0);
-            HtmlTextInput search = searchForm.getInputByName("search");
-            // HtmlButton searchButton = searchForm.getFirstByXPath("submit");
+            // Create webriver
+            WebDriver driver = new ChromeDriver();
+            // driver.manage().window().setPosition(new Point(100,200));
+            // driver.manage().window().setSize(new Dimension(550,680));
 
-            // Enter search term and search
-            search.type(input);
-            // searchButton.click();
+            // Navigate to google and search term
+            driver.get("https://www.google.com");
+            WebElement searchBox = driver.findElement(By.name("q"));
+            searchBox.sendKeys(input);
+            searchBox.submit();
 
-            // Refresh page and get grades
-            // page = client.getPage("");
-            BufferedWriter bw = new BufferedWriter(new FileWriter("./src/main/resources/wiki.html"));
-            bw.write(page.asXml());
-            bw.close();
-            Document doc = Jsoup.parse(page.asXml());
-            // Elements elems = doc.body().getElementsByTag("span");
-            // List<String> text = elems.eachText();
-            // // String gradeSummary = Calendar.getInstance().getTime() + "\n";
-            // String gradeSummary = "";
-            // client.close();
-
-            // // Parse the subject name and grade for each class
-            // for (int i = 0; i < text.size() - 3; i++) {
-            //     // Grade element is always located 3 elements after the name
-            //     String subject = text.get(i);
-            //     String grade = text.get(i + 3);
-            //     if (subject.contains("[") && grade.contains("%")) {
-            //         gradeSummary += subject.substring(5) + ": " + grade + "\n";
-            //     }
-            // }
-
-            // // Remove extra white space 
-            // gradeSummary = gradeSummary.trim();
-
-            // return gradeSummary.substring(gradeSummary.indexOf("\n") + 1);
-            return "Looking up...";
+            return "Done";
         }
-        catch (UnknownHostException e) {
+        catch (Exception e) {
             // Can't access internet
             return "Hmm... something went wrong. Please try again later.";
         }
@@ -247,5 +235,26 @@ public class Actions {
         JSONObject keys = (JSONObject)parser.parse(new FileReader(keyPath));
 
         return keys.get(element).toString();
+    }
+
+    // Checks if current os is windows
+    // @return boolean whether its windows
+    private static boolean isWindows() {
+        String os = System.getProperty("os.name").toLowerCase();
+        return os.indexOf("win") >= 0;
+    }
+
+    // Checks if current os is linux
+    // @return boolean whether its linux
+    private static boolean isLinux() {
+        String os = System.getProperty("os.name").toLowerCase();
+        return os.indexOf("nix") >= 0 || os.indexOf("nux") >= 0;
+    }
+
+    // Checks if current os is mac
+    // @return boolean whether its mac
+    private static boolean isMac() {
+        String os = System.getProperty("os.name").toLowerCase();
+        return os.indexOf("mac") >= 0;
     }
 }
