@@ -90,6 +90,9 @@ public class Controller {
             case "weather":
                 computerResponses.add(new Bubble(Actions.getWeatherSummary()));
                 break;
+            case "music":
+                computerResponses.add(new Bubble(Actions.playMusic()));
+                break;
             case "greeting":
                 computerResponses.add(new Bubble(Actions.getGreeting()));
                 break;
