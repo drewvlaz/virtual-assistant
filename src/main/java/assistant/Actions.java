@@ -32,7 +32,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 
 public class Actions {
     // Read in a file
@@ -164,7 +163,7 @@ public class Actions {
         }
     }
 
-    // Looks up user input on wikipedia
+    // Looks up user input on google
     // @param thing to look up
     // @return String of summary
     public static String lookUp(String input) throws IOException, ParseException {
@@ -193,7 +192,6 @@ public class Actions {
             searchBox.sendKeys(input);
             searchBox.submit();
 
-            // driver.close();
             return "Done";
         }
         catch (Exception e) {
