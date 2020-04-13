@@ -114,10 +114,10 @@ public class Actions {
             HtmlPasswordInput passwordField = loginForm.getInputByName("txt_Password");
 
             // Enter credentials and login
-            String username = getJsonFromKey("grade_username");
-            String password = getJsonFromKey("grade_password");
+            String username = getKeyFromJson("grade_username");
+            String password = getKeyFromJson("grade_password");
             usernameField.type(username);
-            passwordField.type(password);
+            passwordField.type(password + "\n");
 
             // Refresh page and get grades
             page = client.getPage("https://portal.svsd.net/students/grades.asp");
@@ -163,7 +163,7 @@ public class Actions {
         }
     }
 
-    // Looks up user input on google
+    // Looks up user input on Google
     // @param thing to look up
     // @return String of summary
     public static String lookUp(String input) throws IOException, ParseException {
@@ -200,12 +200,53 @@ public class Actions {
         }
     }
 
+    // Get songs using Deezer API
+    public static String playMusic() {
+        try {
+            // Set appropriate path to webdriver
+            String driverPath = "./src/main/resources/webdrivers/";
+            if (isWindows()) {
+                driverPath += "chromedriver.exe";
+            }
+            else if (isLinux()) {
+                driverPath += "chromedriver_linux";
+            }
+            else if (isMac()) {
+                driverPath += "chromedriver_mac";
+            }
+            System.setProperty("webdriver.chrome.driver", driverPath);
+
+            // Create webriver
+            WebDriver driver = new ChromeDriver();
+
+            // Navigate to spotify
+            // driver.get("https://www.spotify.com");
+            // driver.get("https://accounts.spotify.com/en/login");
+            driver.get("https://accounts.spotify.com/en/login?continue=https:%2F%2Fopen.spotify.com%2F");
+
+            // Login with credentials
+            String username = getKeyFromJson("spotify_username");
+            String password = getKeyFromJson("spotify_password");
+            WebElement usernameField = driver.findElement(By.name("username"));
+            WebElement passwordField = driver.findElement(By.name("password"));
+            usernameField.sendKeys(username);
+            passwordField.sendKeys(password + "\n");
+
+            return "Playing";
+        }
+        catch (Exception e) {
+            // Can't access internet
+            return "Hmm... something went wrong. Please try again later.";
+        }
+
+    }
+
     // Downloads weather information from the DarkSky api
     // @return JSONObject of the weather information
     private static JSONObject downloadWeather() throws IOException, ParseException {
         // Read in key to access weather api and concatenate url
         JSONParser parser = new JSONParser();
-        String weatherKey = getJsonFromKey("weather");
+        String weatherKey = getKeyFromJson("weather");
         String latitude = "40.682201";
         String longitude = "-80.104919";
         String address = "https://api.darksky.net/forecast/" + weatherKey + "/" + latitude + "," + longitude;
@@ -228,7 +269,7 @@ public class Actions {
     // Get a key from json file
     // @param element name to retrieve
     // @return element's value
-    private static String getJsonFromKey(String element) throws IOException, ParseException {
+    private static String getKeyFromJson(String element) throws IOException, ParseException {
         // Read in keys
         String keyPath = "./src/main/resources/keys.json";
         JSONParser parser = new JSONParser();
