@@ -25,7 +25,10 @@ Create a keys.json file in the following format to gain weather, grades, and mus
 This project uses Gradle to handle build configuration. Be sure to have it installed on your system.
 
 ### Linux, Mac, and Windows
-```
+<p align="center">
+  <img src="/assets/building.png" alt="Build commands" width="450"/>
+</p>
+<!-- ```
 gradle shadowjar
 java -jar build/libs/virtual-assistant-1.0-all.jar
-```
+``` -->
