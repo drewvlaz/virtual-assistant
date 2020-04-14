@@ -33,7 +33,7 @@ for weather, grades, and music functionality.
 
 This project uses Gradle to handle build configuration. Be sure to have it installed on your system.
 
-### Linux, Mac, and Windows (WSL)
+### Linux, Mac, and Windows
 <!-- <p align="center">
   <img src="/assets/building.png" alt="Build commands" width="450"/>
 </p> -->
