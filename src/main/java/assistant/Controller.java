@@ -3,7 +3,6 @@
 package assistant;
 
 import java.io.IOException;
-import java.util.Scanner;
 import java.util.ArrayList;
 
 import javafx.fxml.FXML;
@@ -11,7 +10,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.VBox;
 
-import com.gargoylesoftware.htmlunit.javascript.host.fetch.Response;
 import com.jfoenix.controls.JFXButton;
 
 import org.json.simple.parser.ParseException;
