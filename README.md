@@ -7,9 +7,6 @@ This is a virtual assistant aimed for students powered by Naive Bayes.
 Actions available include responding to greetings and praise, telling jokes, 
 retrieving the weather, checking grades, playing music, and looking things up.
 
-are checking grades, exchanging greetings, telling jokes,
-searching the internet, and checking the weather.
-
 ## Demo
 ![Simple Demo](/assets/Demo.gif)
 
