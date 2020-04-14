@@ -37,7 +37,7 @@ This project uses Gradle to handle build configuration. Be sure to have it insta
 <!-- <p align="center">
   <img src="/assets/building.png" alt="Build commands" width="450"/>
 </p> -->
-```
+```bash
 git clone https://github.com/drewvlaz/virtual-assistant && cd virtual-assistant
 gradle shadowjar && java -jar build/libs/virtual-assistant-1.0-all.jar
 ```
