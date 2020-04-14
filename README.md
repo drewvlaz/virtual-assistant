@@ -13,7 +13,7 @@ searching the internet, and checking the weather.
 ## Files
 There are also some files that need to be created for full functionality.
 Create a keys.json file in the following format to gain weather and grades retrieval functionality.
-![Keys Example](/assets/keys_example.png)
+![Keys Example](/assets/keys_example.png=250x)
 
 ## Building
 
