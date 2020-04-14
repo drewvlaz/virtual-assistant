@@ -12,14 +12,13 @@ searching the internet, and checking the weather.
 
 ## Files
 There are also some files that need to be created for full functionality.
-Create a keys.json file in the following format to gain weather and grades retrieval functionality.
-```
-{
-    "weather": "Dark Sky API Key",
-    "grade_username": "your username",
-    "grade_password": "your password"
-}
-```
+Create a keys.json file in the following format to gain weather, grades, and music functionality.
+
+<p align="center">
+  <img src="/assets/keys_example.png" alt="Keys Example" width="450"/>
+</p>
+
+
 
 ## Building
 
