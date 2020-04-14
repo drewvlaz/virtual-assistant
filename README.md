@@ -15,7 +15,7 @@ There are also some files that need to be created for full functionality.
 Create a keys.json file in the following format to gain weather and grades retrieval functionality.
 
 <p align="center">
-  <img src="/assets/keys_example.png" alt="Keys Example" width="400"/>
+  <img src="/assets/keys_example.png" alt="Keys Example" width="450"/>
 </p>
 
 
