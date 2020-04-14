@@ -8,7 +8,6 @@ import java.io.IOException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Calendar;
 import java.text.DecimalFormat;
 
 import org.json.simple.JSONObject;
@@ -22,7 +21,6 @@ import org.jsoup.select.Elements;
 import com.gargoylesoftware.htmlunit.WebClient;
 import com.gargoylesoftware.htmlunit.html.HtmlPage;
 import com.gargoylesoftware.htmlunit.html.HtmlForm;
-import com.gargoylesoftware.htmlunit.html.HtmlButton;
 import com.gargoylesoftware.htmlunit.html.HtmlTextInput;
 import com.gargoylesoftware.htmlunit.html.HtmlPasswordInput;
 
@@ -30,7 +28,6 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Point;
-import org.openqa.selenium.Dimension;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Actions {
