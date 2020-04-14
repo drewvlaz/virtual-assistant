@@ -14,7 +14,7 @@ retrieving the weather, checking grades, playing music, and looking things up.
 There are also some files that need to be created for full functionality.
 Create a ```keys.json``` file in ```/src/main/resources``` using the following format 
 for weather, grades, and music functionality.
-```
+```json
 {
     "weather": "Dark Sky Weather API"
     "grade_username": "your username",
