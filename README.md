@@ -12,7 +12,7 @@ searching the internet, and checking the weather.
 
 ## Files
 There are also some files that need to be created for full functionality.
-Create a keys.json file in ```/src/main/resources``` using the following format 
+Create a ```keys.json``` file in ```/src/main/resources``` using the following format 
 for weather, grades, and music functionality.
 ```
 {
