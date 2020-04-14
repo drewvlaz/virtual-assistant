@@ -37,6 +37,5 @@ This project uses Gradle to handle build configuration. Be sure to have it insta
   <img src="/assets/building.png" alt="Build commands" width="450"/>
 </p> -->
 ```
-gradle shadowjar
-java -jar build/libs/virtual-assistant-1.0-all.jar
+gradle shadowjar && java -jar build/libs/virtual-assistant-1.0-all.jar
 ```
