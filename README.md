@@ -12,7 +12,8 @@ searching the internet, and checking the weather.
 
 ## Files
 There are also some files that need to be created for full functionality.
-Create a keys.json file in the following format to gain weather, grades, and music functionality.
+Create a ```keys.json``` file in ```/src/main/resources``` using the following format 
+for weather, grades, and music functionality.
 ```
 {
     "weather": "Dark Sky Weather API"
@@ -37,5 +38,6 @@ This project uses Gradle to handle build configuration. Be sure to have it insta
   <img src="/assets/building.png" alt="Build commands" width="450"/>
 </p> -->
 ```
+git clone https://github.com/drewvlaz/virtual-assistant && cd virtual-assistant
 gradle shadowjar && java -jar build/libs/virtual-assistant-1.0-all.jar
 ```
