@@ -1,3 +1,5 @@
+// Controls all the executable actions the virtual assistant can do
+
 package assistant;
 
 import java.io.BufferedReader;
