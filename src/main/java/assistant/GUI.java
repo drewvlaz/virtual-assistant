@@ -1,3 +1,5 @@
+// Controls the main GUI using javafx
+
 package assistant;
 
 import java.io.FileInputStream;
