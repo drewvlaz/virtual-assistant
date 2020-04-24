@@ -31,7 +31,7 @@ for weather, grades, and music functionality.
 ## Building
 
 This project uses [Gradle](https://gradle.org/) to handle build configuration and [JavaFX](https://openjfx.io/index.html)
-for the GUI. Use JDK8 to compile the project.
+for the GUI. Make sure to be using Java version 8.
 
 ### Linux, Mac, and Windows
 <!-- <p align="center">
