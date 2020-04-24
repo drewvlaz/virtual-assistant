@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'maven-publish'
+    id 'org.openjfx.javafxplugin' version '0.0.8'
     id 'com.github.johnrengelman.shadow' version '5.2.0'
 }
 
@@ -17,6 +18,14 @@ dependencies {
     implementation 'com.jfoenix:jfoenix:8.0.8'
     implementation 'de.jensd:fontawesomefx:8.9'
     implementation 'com.github.wasiqb.coteafs:selenium:3.2.0'
+}
+
+javafx {
+    version = "14"
+    modules = [
+        'javafx.fxml',
+        'javafx.controls'
+    ]
 }
 
 group = 'seniorproject'
