@@ -31,7 +31,7 @@ for weather, grades, and music functionality.
 ## Building
 
 This project uses Gradle to handle build configuration. Be sure to have it installed on your system.
-Also be sure to have javafx installed. Instructions can be found [here](https://openjfx.io/openjfx-docs/).
+Also be sure to have javafx installed. Instructions can be found [here](https://openjfx.io/index.html).
 
 ### Linux, Mac, and Windows
 <!-- <p align="center">
