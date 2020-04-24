@@ -30,8 +30,8 @@ for weather, grades, and music functionality.
 
 ## Building
 
-This project uses Gradle to handle build configuration. Be sure to have it installed on your system.
-Also be sure to have javafx installed. Instructions can be found [here](https://openjfx.io/index.html).
+This project uses [Gradle](https://gradle.org/) to handle build configuration and [JavaFX](https://openjfx.io/index.html)
+for the GUI.
 
 ### Linux, Mac, and Windows
 <!-- <p align="center">
